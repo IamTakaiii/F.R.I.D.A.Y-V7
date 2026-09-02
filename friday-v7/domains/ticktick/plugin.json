@@ -1,0 +1,23 @@
+{
+  "id": "domain.ticktick",
+  "version": "0.1.0",
+  "display_name": "TickTick",
+  "description": "TickTick execution queue with controlled Vault sync.",
+  "surfaces": [
+    "/fr-ticktick"
+  ],
+  "provides": [
+    "mode.init",
+    "mode.setup",
+    "mode.manage",
+    "mode.sync",
+    "mode.review",
+    "mode.describe",
+    "mode.schedule"
+  ],
+  "hooks": {
+    "on_pack_enter": true,
+    "on_session_end": true
+  },
+  "entry": "SKILL.md"
+}

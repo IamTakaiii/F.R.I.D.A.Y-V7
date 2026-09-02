@@ -1,0 +1,8 @@
+{
+  "id": "plugin.example",
+  "version": "0.1.0",
+  "display_name": "Example",
+  "surfaces": [],
+  "provides": [],
+  "entry": "SKILL.md"
+}

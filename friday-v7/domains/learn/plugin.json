@@ -1,0 +1,21 @@
+{
+  "id": "domain.learn",
+  "version": "0.1.0",
+  "display_name": "Research & Learn",
+  "description": "Evidence-first research and teaching.",
+  "surfaces": [
+    "/fr-research",
+    "/fr-learn"
+  ],
+  "provides": [
+    "mode.research",
+    "mode.teach",
+    "mode.path",
+    "mode.distill"
+  ],
+  "hooks": {
+    "on_pack_enter": true,
+    "on_session_end": true
+  },
+  "entry": "SKILL.md"
+}

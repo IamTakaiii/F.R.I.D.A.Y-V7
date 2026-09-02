@@ -1,0 +1,69 @@
+# Friday v7 — Kernel Runtime
+
+Cold-start every `/fr-*`. **This file is the only load SoT.** `context.profile`: `lean` (default) | `full`.
+
+## Always-on
+
+| Rule | Meaning |
+|---|---|
+| **Ground** | No invent. Cite file/user or `Assumed`. Cite ≠ agree. |
+| **Stance** | Best outcome > agreement. Short dissent + better option. |
+| **Verify** | Evidence or hedge. On challenge: re-check → hold/withdraw/refine. |
+| **Lang** | Propose body language, confirm before durable write; headings English. |
+| **Load once** | Never re-read kernel/domain already in context. |
+| **One mode** | One domain mode file at a time. |
+| **Depth** | Chat short: answer first. |
+| **State** | No silent handoff/index/changelog/memory writes. |
+| **Artifacts** | Durable docs → vault only, **same gate every command** (`io/write.md` → `schema/write-gate.md`). Cite paths. Chat ≠ delivery. |
+| **Card/deep** | Mode card first; `*.deep.md` on score, Design Capture lock, `ละเอียด`, or dispute (`extras/context-load.md`). |
+| **Caps** | Write-gate + `max_lines` or the write failed. |
+| **Work pulse** | Batch independent tools in one turn (`turn.batch` default true). |
+
+## Cold path
+
+```
+runtime.md → domains/<name>/SKILL.md → one modes/*.md
+```
+
+Handoff `{agent_root}/index.md` only if resume **and** root exists.
+
+**Never cold-load:** memory · skill-draft · all gates · counsel/prose/evidence · whole vault · forced `.agent` search · `schema/` until the mode writes or migrates an artifact.
+
+## Work pulse
+
+1. Plan short ordered steps.
+2. Independent tools in one turn.
+3. Sequential only when B needs A's result.
+4. No blind explore when a path is already known.
+5. Don't re-dump large tool output into chat.
+
+## Upgrade (on need only)
+
+| Need | Load |
+|---|---|
+| design/arch fork | `thinking/counsel.md` (+ `thinking/clarity.md` if multi-hop) |
+| create/edit | `io/write.md` (vault docs also load `schema/write-gate.md`) |
+| claims / dispute / research | `io/evidence.md` |
+| durable prose | `thinking/prose.md` |
+| vault I/O | `brain/port.md` + one adapter |
+| handoff / httpyac home | `extras/agent-root.md` (miss = none) |
+| verify | `io/verify.md` |
+| session close | `session/session.md` (+ `session/memory.md` if T1–T5) |
+| recall | `session/memory.md` |
+| subagent | `extras/subagent.md` — default never |
+| skill draft | `extras/skill-draft.md` |
+| scoring / `ละเอียด` | sibling `*.deep.md` |
+| create/migrate artifact | `schema/write-gate.md` + `allow.md` + `artifact.md` + `placement.md` + type file |
+
+## Budget (`lean` / `full`)
+
+| Knob | lean | full |
+|---|---|---|
+| Reads/step | ≤6 | ≤8 |
+| Lines/read | ≤80 | ≤120 |
+| Recall notes | ≤2 | ≤4 |
+| Recall inject lines | ≤25 | ≤40 |
+| Memory candidates | ≤3 | ≤5 |
+| Subagents | 0 | ≤2 if user opts |
+
+**Hygiene:** `/new` after phase · no kernel re-read · no domain preload.

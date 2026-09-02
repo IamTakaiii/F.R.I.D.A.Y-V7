@@ -1,0 +1,77 @@
+# Mode → type (only legal writes)
+
+If the type is not in this row, **do not write it**. Pick another mode or do not write.
+`none` = chat / git / `.agent` / repo code only. `promote` = Inbox → any registered type at a `placement.md` path. `patch` = keep the file’s existing type.
+
+## SDLC
+
+| Mode | Surface | Types |
+|---|---|---|
+| orient | `/fr-sdlc` | none |
+| summary | `/fr-sdlc` | none |
+| arch | `/fr-sdlc` | architecture, architecture-part |
+| design | `/fr-design` | intent, design, design-part, api, queue, feature-list, data-model, data-dict |
+| feature-consolidate | `/fr-sdlc` | intent, design, queue, feature-list |
+| decision | `/fr-sdlc` | adr |
+| implement | `/fr-implement` | work-item, queue |
+| publish | `/fr-publish` | none |
+| timeline | `/fr-sdlc` | timeline-log |
+| fix | `/fr-fix` | fix-note, runbook, design, work-item, queue |
+| sync | `/fr-sdlc` | note |
+| review | `/fr-review` | quality-report |
+| test | `/fr-test` | quality-report |
+| audit-struct | `/fr-sdlc` | audit-plan |
+| ship | `/fr-ship` | ship-checklist, release-notes |
+| init-agent | `/fr-sdlc` | none |
+
+`design` on `/fr-fix` only when intended behavior was wrong.
+
+## Other domains
+
+| Mode | Surface | Types |
+|---|---|---|
+| route | `/fr` | none |
+| session | `/fr` | note, memory-lesson |
+| capture | `/fr-brain` | none |
+| inbox | `/fr-brain` | promote |
+| link | `/fr-brain` | patch |
+| moc | `/fr-brain` | note |
+| health | `/fr-brain` | none |
+| research | `/fr-research` | note, personal-research |
+| teach | `/fr-learn` | note |
+| path | `/fr-learn` | note |
+| distill | `/fr-learn` | note |
+| orient | `/fr-write` | none |
+| note | `/fr-write` | note, glossary |
+| brief | `/fr-write` | note |
+| spec | `/fr-write` | note |
+| present | `/fr-write` | note |
+| polish | `/fr-write` | patch |
+| release-notes | `/fr-write` | release-notes, note |
+| orient | `/fr-life` | none |
+| init | `/fr-life` | brief, personal-goals |
+| plan | `/fr-life` | personal-plan |
+| budget | `/fr-life` | personal-budget |
+| weekly | `/fr-life` | note, personal-outcome |
+| logistics | `/fr-life` | personal-tasks, personal-risk, personal-decision, note |
+| init | `/fr-ticktick` | none |
+| setup | `/fr-ticktick` | none |
+| manage | `/fr-ticktick` | work-item, queue, personal-tasks |
+| sync | `/fr-ticktick` | work-item, queue, personal-tasks |
+| review | `/fr-ticktick` | work-item, queue |
+| describe | `/fr-ticktick` | none |
+| schedule | `/fr-ticktick` | none |
+| orient | `/fr-tool` | none |
+| shape | `/fr-tool` | none |
+| build | `/fr-tool` | none |
+| harden | `/fr-tool` | none |
+| catalog | `/fr-tool` | note |
+| orient | `/fr-httpyac` | none |
+| write | `/fr-httpyac` | none |
+| from-design | `/fr-httpyac` | none |
+| run | `/fr-httpyac` | none |
+| note | `/fr-httpyac` | note |
+| feature-plan | `/fr-sdlc` | feature-plan |
+| brief | `/fr-sdlc` | brief |
+
+`brief` (software Overview) is `/fr-sdlc` or first software project create — not Writer `brief` (that is `note`).
