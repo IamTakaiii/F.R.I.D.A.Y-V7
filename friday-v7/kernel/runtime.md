@@ -14,7 +14,7 @@ Cold-start every `/fr-*`. **This file is the only load SoT.** `context.profile`:
 | **One mode** | One domain mode file at a time. |
 | **Depth** | Chat short: answer first. |
 | **State** | No silent handoff/index/changelog/memory writes. |
-| **Artifacts** | Durable docs → vault only, **same gate every command** (`io/write.md` → `schema/write-gate.md`). Cite paths. Chat ≠ delivery. |
+| **Artifacts** | Durable docs → vault only, **same gate every command** (`io/write.md` → `schema/write-gate.md`). Cite paths. Chat ≠ delivery. Session `nosave` = no vault write. |
 | **Card/deep** | Mode card first; `*.deep.md` on score, Design Capture lock, `ละเอียด`, or dispute (`extras/context-load.md`). |
 | **Caps** | Write-gate + `max_lines` or the write failed. |
 | **Work pulse** | Batch independent tools in one turn (`turn.batch` default true). |
@@ -51,6 +51,7 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | session close | `session/session.md` (+ `session/memory.md` if T1–T5) |
 | recall | `session/memory.md` |
 | subagent | `extras/subagent.md` — default never |
+| panel / brainstorm | `thinking/brainstorm.md` — user opt only |
 | skill draft | `extras/skill-draft.md` |
 | scoring / `ละเอียด` | sibling `*.deep.md` |
 | create/migrate artifact | `schema/write-gate.md` + `allow.md` + `artifact.md` + `placement.md` + type file |
@@ -65,5 +66,6 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | Recall inject lines | ≤25 | ≤40 |
 | Memory candidates | ≤3 | ≤5 |
 | Subagents | 0 | ≤2 if user opts |
+| Panel N | 0, or 2–5 if user opts | 0, or 2–5 if user opts |
 
 **Hygiene:** `/new` after phase · no kernel re-read · no domain preload.

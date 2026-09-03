@@ -30,6 +30,8 @@ One request → one primary surface. Secondary = explicit handoff.
 | internal tool | `/fr-tool` |
 | publish docs to Git | `/fr-publish` |
 | explicit `.http` / httpyac | `/fr-httpyac` |
+| opt-in brainstorm panel, 2–5 roles | `/fr-panel` |
+| named pipeline / วนจนผ่าน | `/fr-pipe` |
 
 ## Folded aliases (no surface folder)
 
@@ -42,6 +44,7 @@ One request → one primary surface. Secondary = explicit handoff.
 | `/fr-orient` `/fr-workspace` `/fr-arch` `/fr-decision` `/fr-consolidate` `/fr-audit` `/fr-sync` `/fr-drift` `/fr-timeline` `/fr-init-agent` `/fr-brief` | `/fr-sdlc` (pick mode) |
 | Feature Design summary | `/fr-sdlc` summary or `/fr-write` |
 | `/fr-retro` | `/fr` |
+| `วนจนผ่าน` | `/fr-pipe` (recipe `quality`) |
 
 ## Disambiguation
 
@@ -57,6 +60,8 @@ One request → one primary surface. Secondary = explicit handoff.
 | stakeholder brief / release notes | `/fr-write` |
 | personal trip/home/health / new personal project | `/fr-life` |
 | vault inbox | `/fr-brain` |
+| brainstorm / ขอมุมชน / panel | `/fr-panel` — not `/fr-brain` |
+| pipeline / วนจนผ่าน | `/fr-pipe` — not fused `/fr-review` |
 | TickTick | `/fr-ticktick` |
 | tool grows into product | `/fr-design` |
 

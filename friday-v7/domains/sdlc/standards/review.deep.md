@@ -9,7 +9,7 @@ Score C1–C7 always. C8 only if this diff changed observable behavior or a name
 | ID | Dim | 0 | 2 | 3 | 4 |
 |---|---|---|---|---|---|
 | C1 | Fit | Wrong place | Leaky | Fits; nit | Proven vs arch |
-| C2 | Correctness ★ | Bugs | Gap on a real path | Right; one untested edge | Contract + edges; no Assumed |
+| C2 | Correctness ★ | Bugs / wrong rule | Gap on a real path or rule | Right; one untested edge | Contract + business rule + edges; no Assumed |
 | C3 | Safety ★ | Secrets/authz/race | Partial | Threats named; gap | Trust boundaries evidenced |
 | C4 | Complexity | Overbuilt | Sprawls | Simple enough | As simple as the problem |
 | C5 | Tests | Missing | Some | Right level; hole | Assertions lock the risk |
@@ -21,7 +21,7 @@ Score C1–C7 always. C8 only if this diff changed observable behavior or a name
 
 Weights: C2×2 C3×2 C1×1.5 C5×1.5 C4×1 C6×1 C7×0.5 C8×1.
 
-Hunt A–H **before** scoring: happy/empty/replay/concurrent · placement · DRY · timeout/retry · N+1 · authz/secrets · missing Must/false green · blast/migration.
+Hunt A–I **before** scoring: happy/empty/replay/concurrent · placement · DRY · timeout/retry · N+1 · authz/secrets · missing Must/false green · blast/migration · invariants / impossible state / wrong formula / rule vs Intent.
 
 `code.md` findings map: policy→infra = C1 · I/O-in-loop/unlocked cache = C4 · untestable = C5 · hidden I/O name = C6 · fights neighbor = C7.
 

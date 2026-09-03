@@ -23,6 +23,8 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | audit-struct | `/fr-sdlc` | audit-plan |
 | ship | `/fr-ship` | ship-checklist, release-notes |
 | init-agent | `/fr-sdlc` | none |
+| panel | `/fr-panel` | none |
+| pipe | `/fr-pipe` | none |
 
 `design` on `/fr-fix` only when intended behavior was wrong.
 

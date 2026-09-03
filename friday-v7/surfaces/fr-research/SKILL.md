@@ -9,9 +9,9 @@ description: >
 → domain **learn** mode **research**.
 
 ## Load
-1. `../../kernel/runtime.md` (once)
-2. `../../domains/learn/SKILL.md`
-3. `../../domains/learn/modes/research.md`
+1. `friday-v7/kernel/runtime.md` (once)
+2. `friday-v7/domains/learn/SKILL.md`
+3. `friday-v7/domains/learn/modes/research.md`
 4. Only what that mode names
 
 **Done:** cite Artifacts when the mode writes. Chat-only fails for durable work.

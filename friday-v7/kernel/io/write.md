@@ -10,12 +10,25 @@ Runtime: Claude/Codex `hosts/runtime.py` (`FRIDAY_SUPERVISED=on` default).
 
 | Reply | Effect |
 |---|---|
-| `a` | approve proposed / next file |
+| `a` | approve proposed / next file; then **review-lock** |
+| `r <hook>` | opened cited path; hook = section, symbol, or one finding |
 | `s` | skip |
-| `aa` / `bypass` | session unlock |
+| `aa` / `bypass` | session unlock **and** skip review-lock |
 | `supervised` | back to file-by-file |
 
 Never Write/Edit until `a` or `aa` in chat (unless autonomy already unlocked).
+
+## Session no-save
+
+Session switch, not a mode. Any `/fr-*` still runs; only vault documents are refused.
+
+| Reply | Effect |
+|---|---|
+| `nosave` · `ไม่บันทึก` | this session writes no vault document |
+| `save on` · `บันทึกได้` | restore normal vault writes |
+
+Scope: vault only. Repo code, tests, and `{agent_root}/` are unaffected.
+While on: run the mode, deliver in chat, and name what would have been written (type + path). Do not write it. Durable work is not Done.
 
 ## Artifact language
 
@@ -27,8 +40,19 @@ Headings stay English. Record the choice for the work package. Do not hard-code 
 
 ```
 [n/Total] TYPE: path - one-line description
-Approve (a) / Skip (s) / Abort (x)?
+Approve (a) / Skip (s) / Abort (x)? After write: r <hook> or aa
 ```
+
+## Review-lock
+
+`a` writes that file, then lock is on. Cite the path. Do not start the next work command.
+
+Next work (`/fr-implement` `/fr-fix` `/fr-design` `/fr-test` `/fr-ship` `/fr-publish` `/fr-pipe`, ทำต่อ, next) → refuse until:
+
+- `r <hook>` — section, symbol, or finding from the cited file
+- `aa` — bypass lock + session unlock
+
+Reject bare `r` and hooks `ok` `lgtm` `yes` `y` `ดูแล้ว` `แล้ว` `reviewed` `done`. `/fr-review` is not next work.
 
 ## Destinations
 

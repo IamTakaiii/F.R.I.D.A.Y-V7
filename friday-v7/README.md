@@ -9,5 +9,6 @@ Skill tree. Vault writes go to Obsidian, not here.
 | How to walk this tree | `docs/USER-GUIDE.md` |
 | Locked calls | `DECISIONS.md` |
 | `/fr-*` map | `ROUTING.md` |
+| OpenCode slash | `hosts/opencode/commands/` |
 
 Install: `./scripts/install.sh`

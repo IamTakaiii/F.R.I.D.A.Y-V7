@@ -1,6 +1,6 @@
 # Friday v7
 
-Install beside v6: `./scripts/install.sh`. Do not load friday-v6 at runtime.
+Install: `./scripts/install.sh`. Load friday-v7 only.
 
 ## Map — read in this order
 
@@ -10,12 +10,30 @@ kernel/runtime.md        cold path SoT
 docs/USER-GUIDE.md       this file
 DECISIONS.md             locked calls
 ROUTING.md               which /fr-* to open
+hosts/opencode/commands/ OpenCode slash stubs → matching surface
 schema/                  write contract (order below)
 domains/<name>/SKILL.md  → one modes/<job>.md
 surfaces/fr-*/SKILL.md   thin stubs only
 ```
 
 Do not cold-load `schema/` until the mode writes or migrates an artifact.
+
+## Rule owners
+
+One concern → one file. Copying a procedure into a second file is drift.
+
+| Concern | Owner |
+|---|---|
+| Identity | `SKILL.md` |
+| Always-on / cold path | `kernel/runtime.md` |
+| Write / approve / review-lock | `kernel/io/write.md` |
+| Verify commands | `kernel/io/verify.md` |
+| Vault shape + cap | `schema/write-gate.md` |
+| Routing / folded aliases | `ROUTING.md` |
+| Locked product calls | `DECISIONS.md` |
+| How-to | this file |
+| OpenCode slash stubs | `hosts/opencode/commands/` |
+| OpenCode host pointer | `~/.config/opencode/AGENTS.md` |
 
 ## Vault write (every command)
 
@@ -26,6 +44,10 @@ Do not cold-load `schema/` until the mode writes or migrates an artifact.
 5. Layout — `schema/vault.md`
 
 Never `stem - Heading.md`. Chat is not the artifact. Intent/Design without a Feature List SoT is a failed write.
+
+## Approve
+
+Default supervised. `a` = this file, then review-lock. Next work needs `r <section|symbol|finding>` — not `r` / `r ok` / `r lgtm` / `r ดูแล้ว`. `aa` = session bypass, no review-lock. `/fr-review` is not next work.
 
 ## Existing feature (change or add)
 

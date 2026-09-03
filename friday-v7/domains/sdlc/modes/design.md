@@ -21,6 +21,8 @@ Counsel + Feature List + Arch (if any) on enter. **`design.deep.md` at Capture**
 
 Opinion-only if the user asked — then offer Capture.
 
+**Panel:** offer once at Discover — `skip` or N (2–5). Accepted → `modes/panel.md`, then return here. Panel does not lock.
+
 ## Lock
 
 Cold implementer does not invent contract, safety, capacity, deploy, or recovery.

@@ -5,6 +5,8 @@
     {"q": "/fr-pr", "surface": "/fr-review", "domain": "sdlc", "mode": "review"},
     {"q": "/fr-perf", "surface": "/fr-test", "domain": "sdlc", "mode": "test"},
     {"q": "รันเทส", "surface": "/fr-test", "domain": "sdlc", "mode": "test"},
+    {"q": "/fr-pipe", "surface": "/fr-pipe", "domain": "sdlc", "mode": "pipe"},
+    {"q": "วนจนผ่าน", "surface": "/fr-pipe", "domain": "sdlc", "mode": "pipe"},
     {"q": "ค้นข้อมูล พร้อมแหล่ง", "surface": "/fr-research", "domain": "learn", "mode": "research"},
     {"q": "วางแผนเที่ยว", "surface": "/fr-life", "domain": "life", "mode": "orient"},
     {"q": "Friday ช่วยคิด", "surface": "/fr", "domain": "front", "mode": "route"},

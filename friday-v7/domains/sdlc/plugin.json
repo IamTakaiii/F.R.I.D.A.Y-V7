@@ -12,7 +12,9 @@
     "/fr-review",
     "/fr-test",
     "/fr-ship",
-    "/fr-publish"
+    "/fr-publish",
+    "/fr-panel",
+    "/fr-pipe"
   ],
   "provides": [
     "mode.orient",
@@ -30,7 +32,9 @@
     "mode.test",
     "mode.audit_struct",
     "mode.ship",
-    "mode.init_agent"
+    "mode.init_agent",
+    "mode.panel",
+    "mode.pipe"
   ],
   "hooks": { "on_pack_enter": true, "on_session_end": true },
   "entry": "SKILL.md"

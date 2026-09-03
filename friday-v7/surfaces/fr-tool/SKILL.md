@@ -9,8 +9,8 @@ description: >
 → domain **tool**. Default **orient**. Named: shape · build · harden · catalog.
 
 ## Load
-1. `../../kernel/runtime.md` (once)
-2. `../../domains/tool/SKILL.md`
-3. One `../../domains/tool/modes/<mode>.md`
+1. `friday-v7/kernel/runtime.md` (once)
+2. `friday-v7/domains/tool/SKILL.md`
+3. One `friday-v7/domains/tool/modes/<mode>.md`
 
 **Done:** cite Artifacts when the mode writes.

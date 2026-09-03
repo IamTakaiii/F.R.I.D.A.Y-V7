@@ -9,8 +9,8 @@ description: >
 → domain **ticktick**. Default **manage**. Named: init · setup · sync · review · describe · schedule.
 
 ## Load
-1. `../../kernel/runtime.md` (once)
-2. `../../domains/ticktick/SKILL.md`
-3. One `../../domains/ticktick/modes/<mode>.md`
+1. `friday-v7/kernel/runtime.md` (once)
+2. `friday-v7/domains/ticktick/SKILL.md`
+3. One `friday-v7/domains/ticktick/modes/<mode>.md`
 
 **Done:** cite Artifacts when the mode writes.

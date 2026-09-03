@@ -8,13 +8,13 @@ Overview Brief, Feature List, named feature `intent.md`/`design.md` if a name is
 
 ## Classify
 
-`design` · `implement` · `fix` · `review` · `test` · `ship` · `write` · `research` · `learn` · `brain` · `life` · `tool` · `httpyac` · `publish` · `unclear`
+`design` · `implement` · `fix` · `review` · `test` · `ship` · `pipe` · `write` · `research` · `learn` · `brain` · `life` · `tool` · `httpyac` · `publish` · `unclear`
 
 ## Rules
 
 - Named feature + no `design.md` → `/fr-design`.
 - Queue item Ready → `/fr-implement`. Bug/regression → `/fr-fix`.
-- Score / deep review / PR → `/fr-review`. Run tests / coverage / load → `/fr-test`.
+- Score / deep review / PR → `/fr-review`. Run tests / coverage / load → `/fr-test`. Pipeline / วนจนผ่าน → `/fr-pipe`.
 - Go/no-go → `/fr-ship`. Vault vs Git → `/fr-publish`.
 - Docs without new behavior → `/fr-write`. Citations → `/fr-research`. Teach → `/fr-learn`.
 - Inbox / MOC / vault health → `/fr-brain`. Personal → `/fr-life`.

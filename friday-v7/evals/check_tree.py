@@ -24,6 +24,15 @@ sur = {x.name for x in (R / "surfaces").iterdir() if (x / "SKILL.md").exists()}
 if reg != sur:
     fail(f"registry mismatch extra={sur - reg} missing={reg - sur}")
 
+cmd_dir = R / "hosts" / "opencode" / "commands"
+cmd = {p.stem for p in cmd_dir.glob("*.md")} if cmd_dir.is_dir() else set()
+if cmd != sur:
+    fail(f"opencode commands mismatch extra={cmd - sur} missing={sur - cmd}")
+for name in cmd:
+    n = len((cmd_dir / f"{name}.md").read_text().splitlines())
+    if n > 12:
+        fail(f"fat command stub {name}: {n} lines")
+
 for name in sur:
     lines = len((R / "surfaces" / name / "SKILL.md").read_text().splitlines())
     if lines > 25:

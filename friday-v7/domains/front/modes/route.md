@@ -8,4 +8,4 @@ Same table as `domains/sdlc/modes/orient.md` plus: session retro → `domains/re
 
 Two equal routes → one question. Else name the command + why (≤3 lines).
 
-Light answers (greeting, thanks, simple math) stay here — no skill. Durable writes → owning domain + write-gate. Never load friday-v6.
+Light answers (greeting, thanks, simple math) stay here — no skill. Durable writes → owning domain + write-gate. Load friday-v7 only.

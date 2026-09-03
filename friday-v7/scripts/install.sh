@@ -43,6 +43,15 @@ prune_stale_surfaces() {
   done
 }
 
+prune_dangling_legacy() {
+  local dest_dir="$1"
+  local label="$2"
+  local p="$dest_dir/friday-v6"
+  [[ -L "$p" && ! -e "$p" ]] || return 0
+  rm -f "$p"
+  echo "pruned ($label): $p (dangling)"
+}
+
 link_tree() {
   local dest_dir="$1"
   local label="$2"
@@ -73,6 +82,29 @@ link_tree() {
     done
     prune_stale_surfaces "$dest_dir" "$label"
   fi
+  prune_dangling_legacy "$dest_dir" "$label"
+}
+
+link_opencode_commands() {
+  local src="$ROOT/hosts/opencode/commands"
+  local dest="${OPENCODE_COMMANDS_DIR:-$HOME/.config/opencode/commands}"
+  mkdir -p "$dest"
+  local f name
+  for f in "$src"/*.md; do
+    [[ -f "$f" ]] || continue
+    name="$(basename "$f")"
+    ln -sfn "$f" "$dest/$name"
+    echo "linked (opencode commands): $dest/$name"
+  done
+  local st base
+  for st in "$dest"/fr.md "$dest"/fr-*.md; do
+    [[ -e "$st" || -L "$st" ]] || continue
+    base="$(basename "$st")"
+    if [[ ! -f "$src/$base" ]]; then
+      rm -f "$st"
+      echo "pruned (opencode commands): $st"
+    fi
+  done
 }
 
 OPENCODE_DIR="${OPENCODE_SKILLS_DIR:-$HOME/.config/opencode/skills}"
@@ -81,6 +113,7 @@ CODEX_DIR="${CODEX_SKILLS_DIR:-$HOME/.codex/skills}"
 
 unwrap_if_workspace_parent "$OPENCODE_DIR"
 link_tree "$OPENCODE_DIR" "opencode"
+link_opencode_commands
 link_tree "$CLAUDE_DIR" "claude" surfaces
 link_tree "$CODEX_DIR" "codex" surfaces
 
@@ -88,4 +121,4 @@ python3 "$ROOT/hosts/install_hooks.py"
 
 echo
 echo "OpenCode / Claude / Codex: restart. Codex: /hooks then trust."
-echo "v7 is linked as $LINK_NAME beside any existing friday-v6."
+echo "v7 is linked as $LINK_NAME."

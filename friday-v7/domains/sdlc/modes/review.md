@@ -16,4 +16,6 @@ T4  One verdict block
 T5  quality-report if they want a file
 ```
 
+**Panel:** offer once at T2 — `skip` or N (2–5). Accepted → `modes/panel.md` before T3. Panel findings still get scored here; panel never scores.
+
 Whole folder = two sessions (code, then artifact). Challenge: hold / withdraw / refine — then rescore that track.

@@ -4,7 +4,7 @@ Agile delivery. **Load:** `kernel/runtime.md` → this file → **one** `modes/*
 
 **Every mode:** vault writes → `kernel/io/write.md` + `schema/write-gate.md` (same as every other domain). Chat ≠ delivery.
 
-Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-test` `/fr-ship` `/fr-publish`. Other old `/fr-*` names are aliases in `ROUTING.md`.
+Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-test` `/fr-ship` `/fr-publish` `/fr-panel` `/fr-pipe`. Other old `/fr-*` names are aliases in `ROUTING.md`.
 
 ## Tiers
 
@@ -34,6 +34,8 @@ Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-te
 | audit-struct | `modes/audit-struct.md` | `/fr-sdlc` |
 | ship | `modes/ship.md` | `/fr-ship` |
 | init-agent | `modes/init-agent.md` | `/fr-sdlc` |
+| panel | `modes/panel.md` | `/fr-panel` (opt-in, no write) |
+| pipe | `modes/pipe.md` | `/fr-pipe` (recipe runner, no write) |
 
 No `design-slice`. Reports use `quality-report`.
 

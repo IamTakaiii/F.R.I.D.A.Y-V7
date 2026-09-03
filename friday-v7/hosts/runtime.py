@@ -24,6 +24,17 @@ CLOSE_SIGNAL = re.compile(
     re.I,
 )
 SURFACE = re.compile(r"(?:^|[\s/`])(/?fr(?:iday)?(?:-[\w-]+)?)", re.I)
+NEXT_WORK = re.compile(
+    r"(?:^|[\s/`])(/fr-(?:implement|fix|design|test|ship|publish)\b)|"
+    r"^(?:ทำต่อ|ต่อไป|next(?:\s+item)?\b|implement\b|ลงมือ)",
+    re.I,
+)
+DUMB_HOOKS = frozenset(
+    {"ok", "lgtm", "yes", "y", "ดูแล้ว", "แล้ว", ".", "1", "reviewed", "done", "next", "ต่อ", "ทำต่อ", "r"}
+)
+NO_SAVE_ON = re.compile(r"^(?:nosave|no-save|no save|ไม่บันทึก|ไม่ต้องบันทึก)\b", re.I)
+NO_SAVE_OFF = re.compile(r"^(?:save on|savemode on|บันทึกได้|บันทึกได้แล้ว)\b", re.I)
+VAULT_TOP = re.compile(r"^(?:00 - Meta|10 - Inbox|20 - Projects|30 - Knowledge|40 - Writing|90 - Archive)$")
 SECRET_PATH = re.compile(
     r"(^|[\\/])(\.env(?:\.|$)|.*\.(?:pem|p12|pfx|key)$|id_rsa|id_ed25519|"
     r"credentials|service-account|secrets?[\\/]|[\\/]\.ssh[\\/]|auth\.json$|token\.json$)",
@@ -73,6 +84,20 @@ def guarded_memory_path(value: str) -> bool:
     )
 
 
+def is_vault_path(value: str) -> bool:
+    """Vault document path: under FRIDAY_BRAIN_ROOT, or under a vault top folder."""
+    target = Path(value)
+    root = os.environ.get("FRIDAY_BRAIN_ROOT", "").strip()
+    if root:
+        try:
+            base = Path(os.path.expandvars(os.path.expanduser(root))).resolve()
+            if target.resolve() == base or str(target.resolve()).startswith(str(base) + os.sep):
+                return True
+        except OSError:
+            pass
+    return any(VAULT_TOP.match(part) for part in target.parts)
+
+
 def is_secret_path(value: str) -> bool:
     name = Path(value).name.lower()
     return name == ".env" or name.startswith(".env.") or bool(SECRET_PATH.search(value))
@@ -93,8 +118,10 @@ def default_state() -> dict[str, Any]:
         "last_blocked_path": "",
         "allowed_paths": [],
         "pending_allow_next": False,
+        "review_lock_paths": [],
         "memory_approve_left": 0,
         "close_requested": False,
+        "vault_write_off": False,
         "proposed": False,
         "closed_clean": False,
         "subagent_allowed": False,
@@ -297,6 +324,25 @@ def event_output(event: str, context: str) -> dict[str, Any]:
     return {"hookSpecificOutput": {"hookEventName": event, "additionalContext": context}}
 
 
+def hook_ok(raw: str) -> bool:
+    tokens = [t.strip(".,!?:;") for t in re.split(r"\s+", raw.strip()) if t.strip(".,!?:;")]
+    if not tokens:
+        return False
+    if all(t.lower() in DUMB_HOOKS for t in tokens):
+        return False
+    return any(re.search(r"[A-Za-zก-๙]", t) for t in tokens)
+
+
+def review_lock_nudge(state: dict[str, Any]) -> str:
+    paths = state.get("review_lock_paths") or []
+    listed = "\n".join(paths[-8:]) or "cited paths"
+    return (
+        "FRIDAY_REVIEW_LOCK: refuse next work. Open:\n"
+        f"{listed}\n"
+        "Reply r <section|symbol|finding> or aa to bypass. Not r / r ok / r lgtm / r ดูแล้ว."
+    )
+
+
 def deny(event: str, reason: str) -> dict[str, Any]:
     return {
         "hookSpecificOutput": {
@@ -322,6 +368,15 @@ def handle_prompt(prompt: str, state: dict[str, Any]) -> str:
         state["close_requested"] = True
         state["closed_clean"] = False
         context.append(close_context(state))
+    if NO_SAVE_ON.match(low):
+        state["vault_write_off"] = True
+        context.append(
+            "FRIDAY_NO_SAVE: on. Run the mode, deliver in chat, name type + path instead of writing. "
+            "Vault writes refused; repo and .agent unaffected. Say `save on` to restore."
+        )
+    if NO_SAVE_OFF.match(low):
+        state["vault_write_off"] = False
+        context.append("FRIDAY_NO_SAVE: off. Vault writes follow the normal gate.")
     if re.match(r"^am\b", low) or low.startswith("approve memory"):
         state["memory_approve_left"] = 5
     if re.match(r"^a\b", low) or low in {"approve", "approve file"}:
@@ -337,6 +392,7 @@ def handle_prompt(prompt: str, state: dict[str, Any]) -> str:
         state["supervised"] = False
         state["memory_approve_left"] = 20
         state["last_blocked_path"] = ""
+        state["review_lock_paths"] = []
         context.append("FRIDAY_SUPERVISED: session writes unlocked; say `supervised` to restore file-by-file approval.")
     if re.match(r"^supervised\b", low) or low in {"no bypass", "ask each"}:
         state["write_approved"] = False
@@ -344,6 +400,22 @@ def handle_prompt(prompt: str, state: dict[str, Any]) -> str:
         state["allowed_paths"] = []
         state["pending_allow_next"] = False
         context.append("FRIDAY_SUPERVISED: file-by-file approval restored.")
+    r_match = re.match(r"^r(?:\s+(.*))?$", prompt.strip(), re.I)
+    if r_match:
+        hook = (r_match.group(1) or "").strip()
+        if not state.get("review_lock_paths"):
+            context.append("FRIDAY_REVIEW_LOCK: none pending.")
+        elif hook_ok(hook):
+            state["review_lock_paths"] = []
+            context.append("FRIDAY_REVIEW_LOCK: cleared. Next work allowed.")
+        else:
+            names = ", ".join(Path(p).name for p in state["review_lock_paths"][-5:]) or "cited paths"
+            context.append(
+                "FRIDAY_REVIEW_LOCK: need r <section|symbol|finding> from "
+                f"{names}. Not r / r ok / r lgtm / r ดูแล้ว. Or aa to bypass."
+            )
+    if state.get("review_lock_paths") and NEXT_WORK.search(prompt):
+        context.append(review_lock_nudge(state))
     if low in {"s", "skip file"}:
         state["last_blocked_path"] = ""
         state["pending_allow_next"] = False
@@ -430,6 +502,12 @@ def handle(host: str, data: dict[str, Any]) -> dict[str, Any] | None:
             full_path = absolute_path(path_value, cwd)
             if flag_on("FRIDAY_SECRETS", False) and is_secret_path(full_path):
                 output = deny(event, f"FRIDAY_SECRETS: blocked secret-like path: {path_value}")
+            elif tool in WRITE_TOOLS and state.get("vault_write_off") and is_vault_path(full_path):
+                output = deny(
+                    event,
+                    "FRIDAY_NO_SAVE: session is no-save. Deliver in chat and name type + path.\n"
+                    f"{path_value}\nSay `save on` to allow vault writes again.",
+                )
             elif tool in WRITE_TOOLS:
                 primary = state.get("worktree_primary") or git_linked_primary(cwd)
                 if primary:
@@ -473,6 +551,20 @@ def handle(host: str, data: dict[str, Any]) -> dict[str, Any] | None:
                 state["memory_approve_left"] -= 1
             if full_path not in state["paths"] and not guarded:
                 state["paths"].append(full_path)
+            if (
+                not guarded
+                and state.get("supervised")
+                and not state.get("write_approved")
+            ):
+                lock = state.setdefault("review_lock_paths", [])
+                if full_path not in lock:
+                    lock.append(full_path)
+                if output is None:
+                    output = event_output(
+                        event,
+                        "FRIDAY_REVIEW_LOCK: on. Cite this path. Next work only after "
+                        f"r <section|symbol|finding> or aa.\n{path_value}",
+                    )
             state["closed_clean"] = False
             state["proposed"] = False
             state["nudge_sent"] = False

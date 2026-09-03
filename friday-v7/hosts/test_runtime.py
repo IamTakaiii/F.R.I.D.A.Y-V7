@@ -67,6 +67,39 @@ class RuntimeTest(unittest.TestCase):
         self.assertEqual("deny", denied["hookSpecificOutput"]["permissionDecision"])
         self.assertIsNone(allowed)
 
+    def test_a_write_locks_next_work_until_r_hook(self) -> None:
+        self.event("claude", "lock", "UserPromptSubmit", prompt="a")
+        self.event(
+            "claude", "lock", "PreToolUse", tool_name="Write", tool_input={"file_path": "note.md"}
+        )
+        post = self.event(
+            "claude", "lock", "PostToolUse", tool_name="Write", tool_input={"file_path": "note.md"}
+        )
+        nxt = self.event("claude", "lock", "UserPromptSubmit", prompt="/fr-implement next")
+        dumb = self.event("claude", "lock", "UserPromptSubmit", prompt="r lgtm")
+        ok = self.event("claude", "lock", "UserPromptSubmit", prompt="r Review-lock")
+        after = self.event("claude", "lock", "UserPromptSubmit", prompt="/fr-implement next")
+
+        self.assertIn("FRIDAY_REVIEW_LOCK: on", post["hookSpecificOutput"]["additionalContext"])
+        self.assertIn("refuse next work", nxt["hookSpecificOutput"]["additionalContext"])
+        self.assertIn("need r <section|symbol|finding>", dumb["hookSpecificOutput"]["additionalContext"])
+        self.assertIn("cleared", ok["hookSpecificOutput"]["additionalContext"])
+        self.assertIsNone(after)
+
+    def test_aa_skips_review_lock(self) -> None:
+        self.event("claude", "bypass", "UserPromptSubmit", prompt="aa")
+        self.event(
+            "claude",
+            "bypass",
+            "PostToolUse",
+            tool_name="Write",
+            tool_input={"file_path": "note.md"},
+        )
+        nxt = self.event("claude", "bypass", "UserPromptSubmit", prompt="/fr-implement next")
+        ctx = (nxt or {}).get("hookSpecificOutput", {}).get("additionalContext", "")
+
+        self.assertNotIn("FRIDAY_REVIEW_LOCK", ctx)
+
     def test_aa_unlocks_writes_for_each_host_without_sharing_state(self) -> None:
         self.event("codex", "same", "UserPromptSubmit", prompt="aa")
         codex = self.event(
@@ -99,6 +132,40 @@ class RuntimeTest(unittest.TestCase):
 
         self.assertIn("FRIDAY_WRITE_GUARD", denied["hookSpecificOutput"]["permissionDecisionReason"])
         self.assertIsNone(allowed)
+
+    def test_nosave_blocks_vault_docs_but_not_repo_code(self) -> None:
+        vault = str(Path(self.temp.name) / "20 - Projects" / "10 - Software" / "01 - X" / "design.md")
+        self.event("claude", "nosave", "UserPromptSubmit", prompt="aa")
+        on = self.event("claude", "nosave", "UserPromptSubmit", prompt="nosave")
+        denied = self.event(
+            "claude", "nosave", "PreToolUse", tool_name="Write", tool_input={"file_path": vault}
+        )
+        code = self.event(
+            "claude", "nosave", "PreToolUse", tool_name="Write", tool_input={"file_path": "src/app.py"}
+        )
+        self.event("claude", "nosave", "UserPromptSubmit", prompt="save on")
+        restored = self.event(
+            "claude", "nosave", "PreToolUse", tool_name="Write", tool_input={"file_path": vault}
+        )
+
+        self.assertIn("FRIDAY_NO_SAVE: on", on["hookSpecificOutput"]["additionalContext"])
+        self.assertEqual("deny", denied["hookSpecificOutput"]["permissionDecision"])
+        self.assertIn("FRIDAY_NO_SAVE", denied["hookSpecificOutput"]["permissionDecisionReason"])
+        self.assertIsNone(code)
+        self.assertIsNone(restored)
+
+    def test_nosave_uses_brain_root_when_set(self) -> None:
+        root = Path(self.temp.name) / "MyVault"
+        (root / "notes").mkdir(parents=True)
+        target = str(root / "notes" / "x.md")
+        with patch.dict(os.environ, {"FRIDAY_BRAIN_ROOT": str(root)}, clear=False):
+            self.event("claude", "root", "UserPromptSubmit", prompt="aa")
+            self.event("claude", "root", "UserPromptSubmit", prompt="ไม่บันทึก")
+            denied = self.event(
+                "claude", "root", "PreToolUse", tool_name="Write", tool_input={"file_path": target}
+            )
+
+        self.assertEqual("deny", denied["hookSpecificOutput"]["permissionDecision"])
 
     def test_secret_and_subagent_guards(self) -> None:
         self.event("claude", "guards", "UserPromptSubmit", prompt="/fr-design")

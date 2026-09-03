@@ -14,7 +14,7 @@
 | D10 | Folders | Companion folders created with first file only |
 | D11 | Vault numbers | Fixed: Data=`04`, Labs=`05` (opt-in), Ship=`06`, Operations=`07`. Feature inner files are unnumbered names |
 | D12 | Types retired | `design-slice`, `policy-cost-spike`, vault types `lab`/`guide`/`httpyac`, aliases `brief`/`todo`/`work-log`, field `load_profile` |
-| D13 | Collapse set | 17 surfaces. Folded names only in `ROUTING.md`. Merged types: `quality-report`, `brief`, `note`, architecture `stack` part. |
+| D13 | Collapse set | 19 surfaces. Folded names only in `ROUTING.md`. Merged types: `quality-report`, `brief`, `note`, architecture `stack` part. |
 | D14 | Vault consistency | Every durable vault write uses the same gate (`schema/write-gate.md`): type + placement + template + cap. Command/domain must not define a second shape. |
 | D15 | Allow | Mode may write only types in `schema/allow.md`. |
 | D16 | Vault check | `evals/check_vault.py` against `FRIDAY_BRAIN_ROOT` when set; templates checked by `check_schema.py`. |
@@ -24,6 +24,8 @@
 | D20 | Split | Compress first. Registered parts only (`design/*`, `stack`, `work/`). Never `stem - Heading.md`. Doc history stays on the card (last 5 rows). Still over = failed write. |
 | D21 | Nav | Click = `[[wikilink]]` only. Never `[[.]]`. `## Parts` is click SoT. `intent.md` is the feature hub; other feature files link Intent only. `## Links` last before history, one `- Kind: [[path]]` per target. No Index file. |
 | D22 | Cap | `max_lines: 200`. Count body only (exclude YAML, Links, history). `0` = unlimited for `timeline-log`, `memory-lesson`, and `90 - Log/`. Still over → compress or registered parts; never heading siblings. |
+| D23 | Review-lock | `a` turns on review-lock after the write. Next work needs `r <hook>` or `aa`. `aa` bypasses lock and unlocks writes. Dumb hooks (`ok` `lgtm` `ดูแล้ว` …) rejected. `/fr-review` is not next work. |
+| D24 | Pipe | `/fr-pipe` is a coordinator. Recipes in `pipelines.md`. Spawn a new host session per beat. Never fuse review/fix/test. Never a ship beat. |
 
 ## SDLC tiers
 
