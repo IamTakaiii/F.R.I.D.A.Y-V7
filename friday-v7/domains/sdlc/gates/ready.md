@@ -21,7 +21,7 @@ S-light only when every applicable risk dim is low.
 | R16 | Queue `next`/`ready` ≤5 or skip-reason |
 | R4 | Work-item has checkable DoD |
 | R5 | Approach fork resolved if ≥2 options |
-| R7 | Design card exists; contracts usable; required deep musts passed or N/A + evidence (L must; M if contract/fork) |
+| R7 | Design card exists and is not `superseded`/`draft`; contracts usable and checked against code or labeled `Unverified`; required deep musts passed or N/A + evidence (L must; M if contract/fork) |
 | R8 | DB: data path known or “no schema change” |
 | R10 | Each unfinished dep has stub/contract/flag/block/narrow |
 | R11 | Fits Architecture if that card exists |

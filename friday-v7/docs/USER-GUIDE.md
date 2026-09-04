@@ -59,7 +59,7 @@ Do not open a new feature folder. Patch the same package.
 | Contract change (flow, owner, API, data) | `/fr-design` | `design.md` + matching part · HTTP → `api/` · irreversible → ADR |
 | New slice in the same boundary | queue then `/fr-implement` | New `queue.md` row + `work/TODO-…` · Intent/Design only if scope changes |
 | Bug / review follow-up | `/fr-fix` | `fixes/` or `work` · Design if the contract changed |
-| New review | `/fr-review` | New `reports/YYYY-MM-DD - …` — never overwrite |
+| New review | `/fr-review` [`deep`/`เข้มงวด`] | New `reports/YYYY-MM-DD - …`. Deep asks skip/3/5 specialist panel |
 
 Patch: same type and heading order · `Doc history` row · `rev++` only for contract or data-shape · hub Links stay on `intent.md`. No `flow-2.md` / Design v2.
 

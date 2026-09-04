@@ -8,6 +8,16 @@ Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-te
 
 ## Tiers
 
+Pick by trigger, not by feel. **Highest matching tier wins. Cannot tell → go up one.** State the tier and the trigger that set it.
+
+| Tier | Trigger (any one) |
+|---|---|
+| S | One seam · no contract change · no new dependency · every risk dim `low` with evidence |
+| M | ≥2 seams · contract change (API · schema · event · persisted format) · approach fork with ≥2 real options · new dependency |
+| L | Crosses a feature or service boundary · irreversible migration · any risk dim `high` or unresolved critical `unknown` |
+
+Risk dims: `standards/execution.md`. Tier is locked once per work package; changing it mid-flight needs a stated reason.
+
 | Tier | Artifacts |
 |---|---|
 | S | Feature List row, lightweight Intent, work-item if queued |

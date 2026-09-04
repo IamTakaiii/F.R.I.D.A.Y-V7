@@ -22,11 +22,17 @@ result: "{{result}}"
 
 ## Scope and verdict
 
-{{paths or command}} · **{{PASS\|FAIL}}** · {{result}}
+{{locked path list or diff range}} · **{{PASS\|FAIL}}** · {{result}}
 
 ## Scores or bounds
 
 {{review: C*/T*/G* · test: contracts hit · perf: metric / Design bound / measured}}
+
+{{review only — ledger, one row per lens or dim}}
+
+| Lens/Dim | Result | Cite |
+|---|---|---|
+| {{id}} | {{clean\|finding ids}} | {{path}} |
 
 ## Findings
 

@@ -16,6 +16,15 @@ Controlled decisions + evidence — not longer chat. Used by implement and fix. 
 Rate each `low | medium | high | unknown` + one evidence phrase. **Unknown ≠ low.**
 Any `high` or unresolved critical `unknown` → full Ready/Done + Plan Lock.
 
+Bands — by evidence, not by feel. Between two → take the higher.
+
+| Rating | Means |
+|---|---|
+| `low` | No signal in that dimension, and you can cite where you looked |
+| `medium` | Signal present but bounded, reversible, and an existing test or guard covers it |
+| `high` | Signal present and any of: irreversible · no guard · outside our control · touches money, auth, or production data |
+| `unknown` | Cannot cite evidence either way → gate as `high` until resolved |
+
 ## Control flow
 
 Contract → risk screen → inspect (no tree tour) → Plan Lock if full → execute small increments → self-review **actual diff** → verify map → Done.
@@ -43,7 +52,8 @@ Pause when blast radius grows, contract/arch changes unexpectedly, assumption di
 
 ## Self-review lenses
 
-`correctness` · `errors` · `data` · `security` · `concurrency` · `compat` · `bounds` · `ops` · `tests` · `drift` · `no drive-by`  
+Same 8 lenses as `standards/review.deep.md` — that file is the only lens list. Same ledger rule: each lens emits `clean` + cited path or a finding. Silent lens = not self-reviewed.
+Plus two diff-only checks: `drift` (docs vs this change) · `no drive-by`.
 Shape: `code.md`. Do not invent scale infra.
 
 ## Evidence matrix

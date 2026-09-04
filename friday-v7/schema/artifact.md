@@ -63,6 +63,18 @@ When over cap, in order:
 
 Frontmatter + first required section. Follow `## Parts` / `parts[]` only as needed. Skip Links and history unless navigating.
 
+Read `status` and `updated` before using the content, every time:
+
+| Found | Do |
+|---|---|
+| `status: superseded` or `archived` | Not truth. Find the successor, or ask. Never quote it as current |
+| `status: draft` | Usable as intent only, never as a contract |
+| `status: current`, code not opened | Quote as `Unverified(<updated>)` |
+| `status: current`, code opened, agrees | Use it. Cite both |
+| `status: current`, code opened, disagrees | Conflict. Code = current behavior · artifact = intended behavior. Report it; `/fr-sdlc` sync owns the repair |
+
+Age alone never makes a card wrong, and a recent `updated` never makes it right — only checking against code does.
+
 ## Retired
 
 `design-slice` · `policy-cost-spike` · `todo` · `work-log` · `slice-log` · `lab` · `guide` · vault `httpyac` · `load_profile` · `project-brief` · `personal-brief` · `personal-note` · `review` · `test-report` · `perf-report` · `stack`

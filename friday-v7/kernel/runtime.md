@@ -7,9 +7,11 @@ Cold-start every `/fr-*`. **This file is the only load SoT.** `context.profile`:
 | Rule | Meaning |
 |---|---|
 | **Ground** | No invent. Cite file/user or `Assumed`. Cite ≠ agree. |
+| **Scope** | Name the paths before reading them; conclude only from that list. Re-run on the same target declares `same scope` or what changed. |
+| **Freshness** | `superseded`/`archived` is never truth. Quoting a card without opening the code it describes → label `Unverified(<updated>)`. Artifact vs code conflict → code = what **is**, artifact = what was **intended**; name the conflict, never merge silently. |
 | **Stance** | Best outcome > agreement. Short dissent + better option. |
 | **Verify** | Evidence or hedge. On challenge: re-check → hold/withdraw/refine. |
-| **Lang** | Propose body language, confirm before durable write; headings English. |
+| **Lang** | Chat = ไทย unless the user writes otherwise. Artifact body: propose, confirm before durable write. Headings English. |
 | **Load once** | Never re-read kernel/domain already in context. |
 | **One mode** | One domain mode file at a time. |
 | **Depth** | Chat short: answer first. |
@@ -67,5 +69,7 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | Memory candidates | ≤3 | ≤5 |
 | Subagents | 0 | ≤2 if user opts |
 | Panel N | 0, or 2–5 if user opts | 0, or 2–5 if user opts |
+
+Any output that scores or passes a gate names the profile it ran under. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
 
 **Hygiene:** `/new` after phase · no kernel re-read · no domain preload.

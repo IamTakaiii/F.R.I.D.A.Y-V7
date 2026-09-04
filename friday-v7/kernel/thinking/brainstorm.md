@@ -17,16 +17,19 @@ User-opt panel. **Default: do not spawn.** Not a domain. Load only on `/fr-panel
 
 ## Roles
 
-| Owning mode | Catalog (pick N, no dupes) |
+| Owning mode | Catalog (first N in listed order, no dupes, no shuffle) |
 |---|---|
 | design | critic · customer · operator |
-| review | hunter · architect · shipper |
+| review | security · domain · maintain · perf · lang-fw |
 | other | critic · operator · then unused from both catalogs |
+
+Review prefix: 3 = security · domain · maintain · 5 = all five.
+Review lens: security=C3 · domain=C2 · maintain=C4/C5/C6+change-cost · perf=C4/scale · lang-fw=C7/C4
 
 ## Run
 
 1. Validate N ∈ [2,5]
-2. Pick N roles for the owning mode
+2. Pick first N in catalog order (no shuffle)
 3. Spawn parallel, disjoint prompts (topic + role + no shared chat)
 4. Partial fail OK; 0 success → counsel (parent next)
 5. Parent synth: keep / drop / tension — no vote, no average
