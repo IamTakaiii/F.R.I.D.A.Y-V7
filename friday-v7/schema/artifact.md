@@ -69,11 +69,13 @@ Read `status` and `updated` before using the content, every time:
 |---|---|
 | `status: superseded` or `archived` | Not truth. Find the successor, or ask. Never quote it as current |
 | `status: draft` | Usable as intent only, never as a contract |
-| `status: current`, code not opened | Quote as `Unverified(<updated>)` |
-| `status: current`, code opened, agrees | Use it. Cite both |
-| `status: current`, code opened, disagrees | Conflict. Code = current behavior · artifact = intended behavior. Report it; `/fr-sdlc` sync owns the repair |
+| `status: current`, source not opened | Quote as `Unverified(<updated>)` |
+| `status: current`, source opened, agrees | Use it. Cite both |
+| `status: current`, source opened, disagrees | Conflict. Source = current behavior · card = intended behavior. Report it; `/fr-sdlc` sync owns the repair |
 
-Age alone never makes a card wrong, and a recent `updated` never makes it right — only checking against code does.
+Source = the code paths the card names; when it names none, the artifact or evidence it cites. A card that cites nothing is `Unverified` by definition.
+
+Age alone never makes a card wrong, and a recent `updated` never makes it right — only checking against the source does.
 
 ## Retired
 

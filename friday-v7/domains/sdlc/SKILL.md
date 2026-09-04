@@ -51,7 +51,7 @@ No `design-slice`. Reports use `quality-report`.
 
 ## On demand
 
-`standards/feature-identity.md` · `execution.md` · `code.md` · `deps.md` · `data.md` · `review.md`(+`.deep`) · `test.md`(+`.deep`) · `perf.md` · `audit.md` · `gates/ready.md` · `gates/done.md` · `gates/ship.md`
+`standards/feature-identity.md` · `execution.md` · `code.md` · `lens.md` · `deps.md` · `data.md` · `review.md`(+`.deep`) · `test.md`(+`.deep`) · `perf.md` · `audit.md` · `gates/ready.md` · `gates/done.md` · `gates/ship.md`
 
 ## Done
 

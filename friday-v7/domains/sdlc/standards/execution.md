@@ -52,7 +52,7 @@ Pause when blast radius grows, contract/arch changes unexpectedly, assumption di
 
 ## Self-review lenses
 
-Same 8 lenses as `standards/review.deep.md` — that file is the only lens list. Same ledger rule: each lens emits `clean` + cited path or a finding. Silent lens = not self-reviewed.
+Same 8 lenses as `standards/lens.md` — that card is the only lens list, and it loads without `review.deep.md`. Same ledger rule: each lens emits `clean` + cited path · a finding · or `N/A` + reason. Missing row = not self-reviewed.
 Plus two diff-only checks: `drift` (docs vs this change) · `no drive-by`.
 Shape: `code.md`. Do not invent scale infra.
 

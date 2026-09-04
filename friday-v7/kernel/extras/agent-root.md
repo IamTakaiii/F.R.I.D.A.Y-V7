@@ -5,7 +5,7 @@ Optional. Missing is normal — do not nag.
 | Concern | Where |
 |---|---|
 | Resume handoff | `{agent_root}/index.md` — Focus/Done/Next/Blocked |
-| Prefs | `{agent_root}/preferences.md` |
+| Prefs | `{agent_root}/preferences.md` — `autonomy_profile:` (read by `hosts/runtime.py`) · `context_profile:` (read here) |
 | httpyac | `{agent_root}/httpyac/<feature-slug>/` |
 | Product docs | vault only — never `.agent` as Design store |
 

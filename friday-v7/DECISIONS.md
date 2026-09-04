@@ -26,14 +26,13 @@
 | D22 | Cap | `max_lines: 200`. Count body only (exclude YAML, Links, history). `0` = unlimited for `timeline-log`, `memory-lesson`, and `90 - Log/`. Still over → compress or registered parts; never heading siblings. |
 | D23 | Review-lock | `a` turns on review-lock after the write. Next work needs `r <hook>` or `aa`. `aa` bypasses lock and unlocks writes. Dumb hooks (`ok` `lgtm` `ดูแล้ว` …) rejected. `/fr-review` is not next work. |
 | D24 | Pipe | `/fr-pipe` is a coordinator. Recipes in `pipelines.md`. Spawn a new host session per beat. Never fuse review/fix/test. Never a ship beat. |
+| D25 | Review scoring | Dim scale `0 4 6 8 10`; `10` needs a cite and zero findings; ★ must be 10. `score_pct` divides by `10 × Σweights` — a plain weighted sum is not a percentage. One bar for every run; `เข้มงวด`/`strict` changes who hunts, never the bar. |
+| D26 | Determinism | Scope lock before reading · ledger row per lens/dim (`clean` · finding · `N/A`+reason; missing row = FAIL) · severity by consequence for all three tracks · tier and risk chosen by stated triggers · scored output names its profile. Re-runs are compared on the ledger, never on `%`. |
+| D27 | Freshness | `superseded`/`archived` is never truth. A card quoted without opening its source is `Unverified(<updated>)`. Source wins for current behavior, card wins for intent; conflicts are reported, never merged. |
 
 ## SDLC tiers
 
-| Tier | Required artifacts |
-|---|---|
-| S | Feature List row + lightweight Intent; work-item if implemented as a queue row |
-| M | + one Design card; queue/work-items when tracked; ADR if irreversible |
-| L | + queue; Review/Ship when in scope |
+Locked: tier drives which artifacts and which gate rows apply. Selection triggers and the artifact table live in `domains/sdlc/SKILL.md` — one owner, do not copy them back here.
 
 ## Prose
 

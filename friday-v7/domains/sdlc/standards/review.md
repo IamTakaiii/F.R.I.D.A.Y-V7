@@ -1,7 +1,7 @@
 # Review standard
 
 Hunt then score. Deep required. One track, one %. Code is one card (technical + business).
-Same bar always — `deep` / `เข้มงวด` is spawn, not a second rubric. Lenses: `review.deep.md`.
+Same bar always — `strict` / `เข้มงวด` is spawn, not a second rubric. Lenses: `lens.md`.
 
 | Track | Scope | Rubric | ★ |
 |---|---|---|---|

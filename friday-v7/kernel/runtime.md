@@ -1,6 +1,8 @@
 # Friday v7 — Kernel Runtime
 
-Cold-start every `/fr-*`. **This file is the only load SoT.** `context.profile`: `lean` (default) | `full`.
+Cold-start every `/fr-*`. **This file is the only load SoT.**
+
+`context.profile`: `lean` (default) | `full`. Raised only two ways — the user asks for it this session, or `context_profile:` in `{agent_root}/preferences.md` when that file is already in context. There is no other setter; if neither happened, the run is `lean`.
 
 ## Always-on
 
@@ -8,7 +10,7 @@ Cold-start every `/fr-*`. **This file is the only load SoT.** `context.profile`:
 |---|---|
 | **Ground** | No invent. Cite file/user or `Assumed`. Cite ≠ agree. |
 | **Scope** | Name the paths before reading them; conclude only from that list. Re-run on the same target declares `same scope` or what changed. |
-| **Freshness** | `superseded`/`archived` is never truth. Quoting a card without opening the code it describes → label `Unverified(<updated>)`. Artifact vs code conflict → code = what **is**, artifact = what was **intended**; name the conflict, never merge silently. |
+| **Freshness** | `superseded`/`archived` is never truth. Quoting a card without opening what it describes — code when it names code paths, else the source it cites → label `Unverified(<updated>)`. Card vs source conflict → source = what **is**, card = what was **intended**; name the conflict, never merge silently. |
 | **Stance** | Best outcome > agreement. Short dissent + better option. |
 | **Verify** | Evidence or hedge. On challenge: re-check → hold/withdraw/refine. |
 | **Lang** | Chat = ไทย unless the user writes otherwise. Artifact body: propose, confirm before durable write. Headings English. |
@@ -70,6 +72,6 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | Subagents | 0 | ≤2 if user opts |
 | Panel N | 0, or 2–5 if user opts | 0, or 2–5 if user opts |
 
-Any output that scores or passes a gate names the profile it ran under. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
+Any output that scores or passes a gate names the profile it ran under — `lean` unless one of the two setters above fired. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
 
 **Hygiene:** `/new` after phase · no kernel re-read · no domain preload.
