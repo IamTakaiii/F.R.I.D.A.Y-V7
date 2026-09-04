@@ -66,7 +66,10 @@ Patch: same type and heading order · `Doc history` row · `rev++` only for cont
 ## Check
 
 ```bash
-python3 evals/check_tree.py
+python3 evals/check_tree.py      # registry, stub sizes, retired types
+python3 evals/check_schema.py    # type templates share one frontmatter contract
+python3 evals/check_allow.py     # every type allowed somewhere, no unknown tokens
+python3 evals/check_rubric.py    # review scale, bands, weights, formula, ledger
 python3 evals/check_vault.py --vault "$FRIDAY_BRAIN_ROOT"
 ```
 

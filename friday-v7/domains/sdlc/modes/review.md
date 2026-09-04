@@ -33,4 +33,6 @@ Every lens (code) or dim (artifact, general) emits one row before scoring: `clea
 `N/A` is a row, not an absence — a dim you skip silently is unread scope = FAIL. All rows `clean` → collapse to one line.
 Ledger is what re-runs are compared on — not the %.
 
+Target is the Friday skill tree itself → chat-only; no `quality-report`, no vault path. Say plainly that this ledger dies with the session and the next run has nothing to diff (D26).
+
 Whole folder = two sessions (code, then artifact). Challenge: hold / withdraw / refine — then rescore that track.

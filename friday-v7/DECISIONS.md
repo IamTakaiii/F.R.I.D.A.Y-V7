@@ -27,7 +27,7 @@
 | D23 | Review-lock | `a` turns on review-lock after the write. Next work needs `r <hook>` or `aa`. `aa` bypasses lock and unlocks writes. Dumb hooks (`ok` `lgtm` `ดูแล้ว` …) rejected. `/fr-review` is not next work. |
 | D24 | Pipe | `/fr-pipe` is a coordinator. Recipes in `pipelines.md`. Spawn a new host session per beat. Never fuse review/fix/test. Never a ship beat. |
 | D25 | Review scoring | Dim scale `0 4 6 8 10`; `10` needs a cite and zero findings; ★ must be 10. `score_pct` divides by `10 × Σweights` — a plain weighted sum is not a percentage. One bar for every run; `เข้มงวด`/`strict` changes who hunts, never the bar. |
-| D26 | Determinism | Scope lock before reading · ledger row per lens/dim (`clean` · finding · `N/A`+reason; missing row = FAIL) · severity by consequence for all three tracks · tier and risk chosen by stated triggers · scored output names its profile. Re-runs are compared on the ledger, never on `%`. |
+| D26 | Determinism | Scope lock before reading · ledger row per lens/dim (`clean` · finding · `N/A`+reason; missing row = FAIL) · severity by consequence for all three tracks · tier and risk chosen by stated triggers · scored output names its profile. Re-runs are compared on the ledger, never on `%`. **Exception:** the Friday skill tree is not a vault project, so a review or audit of it is chat-only. Its ledger dies with the session — say so, and never claim cross-run comparability for those runs. |
 | D27 | Freshness | `superseded`/`archived` is never truth. A card quoted without opening its source is `Unverified(<updated>)`. Source wins for current behavior, card wins for intent; conflicts are reported, never merged. |
 
 ## SDLC tiers

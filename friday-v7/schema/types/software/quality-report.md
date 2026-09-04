@@ -26,13 +26,7 @@ result: "{{result}}"
 
 ## Scores or bounds
 
-{{review: C*/T*/G* · test: contracts hit · perf: metric / Design bound / measured}}
-
-{{review only — ledger, one row per lens or dim}}
-
-| Lens/Dim | Result | Cite |
-|---|---|---|
-| {{id}} | {{clean\|finding ids}} | {{path}} |
+{{review: C*/T*/G* + one ledger row per lens or dim — clean+cite \| finding \| N/A+reason · test: contracts hit · perf: metric / Design bound / measured}}
 
 ## Findings
 
