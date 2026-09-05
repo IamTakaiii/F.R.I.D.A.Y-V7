@@ -1,6 +1,6 @@
 # Friday v7
 
-Skill tree. Vault writes go to Obsidian, not here.
+Skill tree. Durable docs go to the configured brain (local folder by default, or an Obsidian vault if you opt in) — not this repo.
 
 | Start | File |
 |---|---|

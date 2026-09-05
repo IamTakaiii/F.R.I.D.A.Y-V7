@@ -25,7 +25,9 @@ Diff review (`/fr-pr`, "review since X") resolves the range **before** anything 
 2. `git rev-parse <point>` must resolve · `git diff <point>...HEAD` (three-dot = against the merge-base) must be non-empty · `git log <point>..HEAD --oneline` for the commit list.
 3. Bad ref or empty diff **fails here** — not inside a hunt, and never as a guess.
 
-**Spec source**, first hit wins: Intent/Design for the feature → issue refs in the commit messages → a path the user passed → a spec under `docs/` `specs/` `.scratch/` matching the branch → ask.
+**Spec source**, first hit wins: resolve the brain root through `kernel/brain/port.md` + one adapter (`local` default; Obsidian only if configured), then use the repo project name/remote and changed paths or branch to select one feature from that project's Feature List and read only that feature pack's `intent.md`, `design.md`, `queue.md`, and linked `plans/`/`work/` slices → Intent/Design already in context → issue refs in the commit messages → a path the user passed → a spec under `docs/` `specs/` `.scratch/` matching the branch → ask. A resolved brain is a valid spec source, not an optional afterthought.
+
+Vault lookup is bounded: do not scan the whole brain. If project/feature matching yields zero or multiple candidates, report the candidates and ask before scoring; do not silently downgrade a known brain spec to `no spec`.
 
 None of those → state `no spec` plainly. It is a recorded state, not unread scope: the spec hunt reports `no spec available`, spec findings are impossible, and **C2 cannot reach 10** because nothing is cited to prove intent.
 

@@ -122,3 +122,4 @@ python3 "$ROOT/hosts/install_hooks.py"
 echo
 echo "OpenCode / Claude / Codex: restart. Codex: /hooks then trust."
 echo "v7 is linked as $LINK_NAME."
+echo "Brain default: local (~/.local/share/friday). Obsidian opt-in: set brain.backend + brain.root."

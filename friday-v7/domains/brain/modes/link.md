@@ -1,6 +1,6 @@
 # Brain — link
 
-Connect existing notes. Adapter-native syntax (wikilinks if Obsidian).
+Connect existing notes. On-disk links stay `[[wikilink]]` (vault-relative). Obsidian MCP is optional; local FS resolves the same paths.
 
 ## Steps
 

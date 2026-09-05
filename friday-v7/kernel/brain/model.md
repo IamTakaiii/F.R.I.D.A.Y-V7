@@ -4,4 +4,4 @@ Logical note kinds: `capture` · `note` · `moc` · `artifact` · `decision` · 
 
 Software delivery artifacts use `schema/types/*`. Personal projects use `personal-*` types in the same schema.
 
-Do not invent a folder that `schema/vault.md` does not list.
+Backend is independent of note kinds (`local` default; Obsidian opt-in). Do not invent a folder that `schema/vault.md` does not list.
