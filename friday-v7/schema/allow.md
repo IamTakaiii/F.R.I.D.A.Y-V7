@@ -10,13 +10,21 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | orient | `/fr-sdlc` | none |
 | summary | `/fr-sdlc` | none |
 | arch | `/fr-sdlc` | architecture, architecture-part |
+| architecture-improvement | `/fr-sdlc` | audit-plan |
 | design | `/fr-design` | intent, design, design-part, api, queue, feature-list, data-model, data-dict |
+| design-experiment | `/fr-sdlc` | none |
+| decision-map | `/fr-sdlc` | decision-map, decision-ticket |
+| delivery-slice | `/fr-sdlc` | queue, work-item |
 | feature-consolidate | `/fr-sdlc` | intent, design, queue, feature-list |
 | decision | `/fr-sdlc` | adr |
 | implement | `/fr-implement` | work-item, queue |
 | publish | `/fr-publish` | none |
 | timeline | `/fr-sdlc` | timeline-log |
 | fix | `/fr-fix` | fix-note, runbook, design, work-item, queue |
+| debug | `/fr-fix` | fix-note |
+| work-intake | `/fr-sdlc` | none |
+| stakeholder-questions | `/fr-sdlc` | questionnaire |
+| guided-procedure | `/fr-sdlc` | runbook |
 | sync | `/fr-sdlc` | note |
 | review | `/fr-review` | quality-report |
 | test | `/fr-test` | quality-report |
@@ -33,7 +41,7 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | Mode | Surface | Types |
 |---|---|---|
 | route | `/fr` | none |
-| session | `/fr` | note, memory-lesson |
+| environment | `/fr` | note, memory-lesson |
 | capture | `/fr-brain` | none |
 | inbox | `/fr-brain` | promote |
 | link | `/fr-brain` | patch |
@@ -55,7 +63,7 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | plan | `/fr-life` | personal-plan |
 | budget | `/fr-life` | personal-budget |
 | weekly | `/fr-life` | note, personal-outcome |
-| logistics | `/fr-life` | personal-tasks, personal-risk, personal-decision, note |
+| logistics | `/fr-life` | trip-plan, personal-tasks, personal-budget, personal-risk, personal-decision, note |
 | init | `/fr-ticktick` | none |
 | setup | `/fr-ticktick` | none |
 | manage | `/fr-ticktick` | work-item, queue, personal-tasks |

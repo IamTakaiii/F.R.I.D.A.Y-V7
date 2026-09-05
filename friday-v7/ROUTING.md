@@ -1,72 +1,49 @@
 # Routing Policy (v7)
 
+Machine-readable SoT: `routing/registry.json`. Do not duplicate route signals or mode lists here, in surfaces, or in domain orient modes.
+
 ## Precedence
 
-1. Explicit `/fr-*` (or a folded alias below)
-2. Clear natural-language domain outcome
-3. Ambiguous / multi-domain → `/fr`
-4. Greeting / thanks / simple math → no skill
+1. Exact registered surface or alias.
+2. Clear outcome evidence; apply both `positive` and `negative` signals.
+3. Tied plausible routes → one contrast question.
+4. No evidence → six-group fallback from the registry.
+5. Greeting, thanks, simple math → no skill.
 
-One request → one primary surface. Secondary = explicit handoff.
+One request has one primary route. Secondary work is an explicit handoff.
 
-## Surfaces (keep)
+## Confidence
 
-| Intent | Surface |
+| Level | Action |
 |---|---|
-| triage, “Friday”, unclear, session retro | `/fr` |
-| hub: orient, arch, ADR, consolidate, audit, sync/drift, timeline, init-agent, workspace | `/fr-sdlc` |
-| feature Design | `/fr-design` |
-| implement one work-item | `/fr-implement` |
-| bug / incident / runbook / fix from review | `/fr-fix` |
-| scored review / PR | `/fr-review` |
-| tests, coverage, bench/load, test tooling | `/fr-test` |
-| ship gate | `/fr-ship` |
-| polished docs, stakeholder brief, release notes | `/fr-write` |
-| teach, path | `/fr-learn` |
-| citations, compare sources | `/fr-research` |
-| inbox, MOC, capture, vault health | `/fr-brain` |
-| life / personal project (including init) | `/fr-life` |
-| TickTick | `/fr-ticktick` |
-| internal tool | `/fr-tool` |
-| publish docs to Git | `/fr-publish` |
-| explicit `.http` / httpyac | `/fr-httpyac` |
-| opt-in brainstorm panel, 2–5 roles | `/fr-panel` |
-| named pipeline / วนจนผ่าน | `/fr-pipe` |
+| high | Name `surface → mode`, load its domain mode, and continue **in this turn**. Do not make the user repeat the request. |
+| medium | Ask one contrast question naming the two outcomes and your bet. Answer → dispatch in the next turn. |
+| low | Show only the registry's six outcome groups. Ask which result they want; never dump surfaces or modes. |
 
-## Folded aliases (no surface folder)
+The deterministic aid `routing/route.py` uses the registry's evidence weights. The LLM may understand paraphrases the script cannot, but it must obey the same precedence, exclusions, and confidence actions.
 
-| Old / signal | Use |
-|---|---|
-| `/fr-pr` | `/fr-review` |
-| `/fr-fix-from-review` | `/fr-fix` |
-| `/fr-runbook` | `/fr-fix` (incident) |
-| `/fr-test-init` `/fr-perf` `/fr-perf-init` | `/fr-test` |
-| `/fr-orient` `/fr-workspace` `/fr-arch` `/fr-decision` `/fr-consolidate` `/fr-audit` `/fr-sync` `/fr-drift` `/fr-timeline` `/fr-init-agent` `/fr-brief` | `/fr-sdlc` (pick mode) |
-| Feature Design summary | `/fr-sdlc` summary or `/fr-write` |
-| `/fr-retro` | `/fr` |
-| `วนจนผ่าน` | `/fr-pipe` (recipe `quality`) |
+## Hierarchy
 
-## Disambiguation
+The registry targets `domain.mode` and its owning surface. `/fr` may load that surface and mode directly after a high-confidence route. Domain surfaces use the same registry filtered to their domain; they do not maintain another classification table.
 
-| Signal | Prefer |
-|---|---|
-| bug / outage | `/fr-fix` |
-| docs ≠ code | `/fr-sdlc` sync (scope: feature or project) |
-| PR / scored review | `/fr-review` |
-| run / init tests or load | `/fr-test` |
-| generate `.http` | `/fr-httpyac` |
-| teach | `/fr-learn` |
-| sources | `/fr-research` |
-| stakeholder brief / release notes | `/fr-write` |
-| personal trip/home/health / new personal project | `/fr-life` |
-| vault inbox | `/fr-brain` |
-| brainstorm / ขอมุมชน / panel | `/fr-panel` — not `/fr-brain` |
-| pipeline / วนจนผ่าน | `/fr-pipe` — not fused `/fr-review` |
-| TickTick | `/fr-ticktick` |
-| tool grows into product | `/fr-design` |
+Loading order after dispatch:
 
-## Rules
+1. `kernel/runtime.md` (once)
+2. owning `domains/<domain>/SKILL.md`
+3. exactly one `domains/<domain>/modes/<mode>.md`
+4. only what that mode names
 
-- Outcome over keyword.
-- Don't route v7 into friday-v6 or v5.
-- Don't invent vault paths. SoT: `schema/vault.md`.
+## Aliases
+
+An alias beginning with `/` is legal only when:
+
+- its first token is a registered surface, **or**
+- `hosts/opencode/commands/<alias>.md` exists and dispatches to the owning surface+mode.
+
+Aliases are OpenCode conveniences, not extra surfaces. Claude/Codex use `/fr <outcome>` or a registered surface.
+
+## Boundaries
+
+`negative` evidence is load-bearing. In particular: intake ≠ review · debug ≠ load test · current architecture ≠ architecture improvement · vault audit ≠ code architecture · incident runbook ≠ guided setup · stakeholder brief ≠ stakeholder questions · Design ≠ experiment · locked slices ≠ uncertain decision map.
+
+Outcome beats a keyword. Never route v7 to v5/v6. Durable writes still follow `schema/allow.md` and `schema/placement.md`.

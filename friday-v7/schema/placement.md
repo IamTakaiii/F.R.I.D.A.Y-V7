@@ -27,6 +27,9 @@ Do not invent a folder or filename. Type → one pattern. If it does not fit, pi
 | quality-report | `{F}/reports/YYYY-MM-DD - {Code Review\|Artifact Review\|Deep Review\|Test Report\|Perf Report}.md` |
 | feature-plan | `{F}/plans/<slug>.md` |
 | audit-plan | `{P}/00 - Overview/` or `{F}/plans/` — never `{agent_root}` |
+| decision-map | `{F}/plans/decision-map-<slug>.md` |
+| decision-ticket | `{F}/plans/<map>/decisions/DEC-NN - <title>.md` |
+| questionnaire | `{F}/plans/questions/<slug>.md` |
 | data-model | `{P}/04 - Data/01 - Model/<slug>.md` |
 | data-dict | `{P}/04 - Data/02 - Dictionary/<slug>.md` |
 | ship-checklist | `{P}/06 - Ship/YYYY-MM-DD - Ship.md` |
@@ -44,6 +47,7 @@ Do not invent a folder or filename. Type → one pattern. If it does not fit, pi
 | brief | `{L}/00 - Overview/01 - Brief.md` (`project_kind: personal`) |
 | personal-goals | `{L}/00 - Overview/02 - Goals.md` |
 | personal-plan | `{L}/01 - Plan/<slug>.md` |
+| trip-plan | `{L}/01 - Plan/Trip - <slug>.md` |
 | personal-tasks | `{L}/02 - Tasks/<slug>.md` |
 | personal-decision | `{L}/03 - Decisions/<slug>.md` |
 | personal-research | `{L}/04 - Research/<slug>.md` |

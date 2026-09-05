@@ -4,7 +4,7 @@ Agile delivery. **Load:** `kernel/runtime.md` → this file → **one** `modes/*
 
 **Every mode:** vault writes → `kernel/io/write.md` + `schema/write-gate.md` (same as every other domain). Chat ≠ delivery.
 
-Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-test` `/fr-ship` `/fr-publish` `/fr-panel` `/fr-pipe`. Other old `/fr-*` names are aliases in `ROUTING.md`.
+Surfaces: `/fr-sdlc` `/fr-design` `/fr-implement` `/fr-fix` `/fr-review` `/fr-test` `/fr-ship` `/fr-publish` `/fr-panel` `/fr-pipe`. Focused capabilities remain named modes under these few surfaces; aliases live in `ROUTING.md`.
 
 ## Tiers
 
@@ -31,13 +31,21 @@ Risk dims: `standards/execution.md`. Tier is locked once per work package; chang
 | orient | `modes/orient.md` | `/fr-sdlc` default; workspace map |
 | summary | `modes/summary.md` | Feature + Design card, read-only |
 | arch | `modes/arch.md` | `/fr-sdlc` |
+| architecture-improvement | `modes/architecture-improvement.md` | find high-value module/seam refactors |
 | design | `modes/design.md` | `/fr-design` |
+| design-experiment | `modes/design-experiment.md` | disposable logic/UI evidence for one design question |
+| decision-map | `modes/decision-map.md` | navigate work too uncertain for one session |
+| delivery-slice | `modes/delivery-slice.md` | locked Design → vertical, dependency-wired work |
 | feature-consolidate | `modes/feature-consolidate.md` | `/fr-sdlc` |
 | decision | `modes/decision.md` | `/fr-sdlc` |
 | implement | `modes/implement.md` | `/fr-implement` |
 | publish | `modes/publish.md` | `/fr-publish` |
 | timeline | `modes/timeline.md` | `/fr-sdlc` or `/fr-write` |
 | fix | `modes/fix.md` | `/fr-fix` (review follow-up, runbook) |
+| debug | `modes/debug.md` | `/fr-fix` (hard bug or performance regression) |
+| work-intake | `modes/work-intake.md` | verify and route issues / external PRs |
+| stakeholder-questions | `modes/stakeholder-questions.md` | get missing decisions from the real owner |
+| guided-procedure | `modes/guided-procedure.md` | script human-only setup / migration steps |
 | sync | `modes/sync.md` | `/fr-sdlc` · scope feature \| project |
 | review | `modes/review.md` | `/fr-review` (incl. PR) |
 | test | `modes/test.md` | `/fr-test` (incl. init, perf) |

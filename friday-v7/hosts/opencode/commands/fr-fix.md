@@ -1,5 +1,5 @@
 ---
-description: Fix bug, incident runbook, or review follow-up. Triggers: /fr-fix, แก้บั๊ก, แก้ตามรีวิว, runbook.
+description: Debug bugs/regressions or handle incidents and review fixes.
 ---
 
 Load `friday-v7/surfaces/fr-fix/SKILL.md`.

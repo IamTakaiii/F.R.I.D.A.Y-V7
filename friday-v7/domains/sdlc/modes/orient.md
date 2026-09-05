@@ -6,20 +6,9 @@ Pick **one** next `/fr-*`. Do not start design, implement, review, or test here.
 
 Overview Brief, Feature List, named feature `intent.md`/`design.md` if a name is given. Repo tree only if needed to name the project. Workspace: one repo unless the user is mid-task across repos.
 
-## Classify
+## Route
 
-`design` · `implement` · `fix` · `review` · `test` · `ship` · `pipe` · `write` · `research` · `learn` · `brain` · `life` · `tool` · `httpyac` · `publish` · `unclear`
-
-## Rules
-
-- Named feature + no `design.md` → `/fr-design`.
-- Queue item Ready → `/fr-implement`. Bug/regression → `/fr-fix`.
-- Score / deep review / PR → `/fr-review`. Run tests / coverage / load → `/fr-test`. Pipeline / วนจนผ่าน → `/fr-pipe`.
-- Go/no-go → `/fr-ship`. Vault vs Git → `/fr-publish`.
-- Docs without new behavior → `/fr-write`. Citations → `/fr-research`. Teach → `/fr-learn`.
-- Inbox / MOC / vault health → `/fr-brain`. Personal → `/fr-life`.
-- Internal helper → `/fr-tool`. Authored `.http` journeys → `/fr-httpyac`.
-- Two equal routes → one question. Else recommend one command + why (≤3 lines).
+Use `routing/registry.json`, filtered to `id` beginning `sdlc.`. High confidence dispatches and continues in the same turn. Medium asks one contrast question. Low shows the six outcome groups from `ROUTING.md`; never list all SDLC modes.
 
 ## Workspace (only if multi-repo)
 

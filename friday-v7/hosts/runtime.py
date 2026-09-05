@@ -174,7 +174,7 @@ class StateStore:
 
 def load_packs() -> dict[str, dict[str, Any]]:
     packs: dict[str, dict[str, Any]] = {}
-    for rel in ("packs", "plugins"):
+    for rel in ("domains", "packs", "plugins"):
         base = ROOT / rel
         if not base.is_dir():
             continue
@@ -204,7 +204,17 @@ def surface_from_prompt(prompt: str) -> str:
     if not match:
         return ""
     key = match.group(1).lower().lstrip("/")
-    return "fr" if key in {"friday", "friday-v6", "friday-v7"} else key
+    if key in {"friday", "friday-v6", "friday-v7"}:
+        return "fr"
+    try:
+        registry = json.loads((ROOT / "routing" / "registry.json").read_text(encoding="utf-8"))
+        for route in registry["routes"]:
+            for alias in route["aliases"]:
+                if alias.startswith("/") and alias.split()[0].lower().lstrip("/") == key:
+                    return route["surface"].lstrip("/")
+    except (OSError, json.JSONDecodeError, KeyError, TypeError):
+        pass
+    return key
 
 
 def pack_context(surface: str, state: dict[str, Any]) -> str:

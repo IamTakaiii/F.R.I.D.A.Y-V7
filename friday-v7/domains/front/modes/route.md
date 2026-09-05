@@ -1,11 +1,11 @@
 # Front — route
 
-Infer outcome. Send **one** surface from `ROUTING.md`. Do not run that domain’s work in this turn.
+Infer outcome from `routing/registry.json`; obey `ROUTING.md`. Send one `surface → mode`.
 
-## Classify
+## Dispatch
 
-Same table as `domains/sdlc/modes/orient.md` plus: session retro → `domains/retro/modes/session.md` (no `/fr-retro` folder).
+- High confidence → name the route in one line, load it, and **continue now**. The user never repeats the request.
+- Medium → one contrast question with your bet; do not load either mode yet.
+- Low → the six outcome groups from the registry, no mode dump.
 
-Two equal routes → one question. Else name the command + why (≤3 lines).
-
-Light answers (greeting, thanks, simple math) stay here — no skill. Durable writes → owning domain + write-gate. Load friday-v7 only.
+Light answers (greeting, thanks, simple math) stay here — no skill. Durable writes → owning domain + write-gate. Never load `sdlc/orient.md` as a proxy router.

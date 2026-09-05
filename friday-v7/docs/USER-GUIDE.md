@@ -9,7 +9,8 @@ SKILL.md                 identity only (not the rulebook)
 kernel/runtime.md        cold path SoT
 docs/USER-GUIDE.md       this file
 DECISIONS.md             locked calls
-ROUTING.md               which /fr-* to open
+ROUTING.md               routing behavior and confidence contract
+routing/registry.json    route evidence + aliases + examples (SoT)
 hosts/opencode/commands/ OpenCode slash stubs → matching surface
 schema/                  write contract (order below)
 domains/<name>/SKILL.md  → one modes/<job>.md
@@ -29,11 +30,18 @@ One concern → one file. Copying a procedure into a second file is drift.
 | Write / approve / review-lock | `kernel/io/write.md` |
 | Verify commands | `kernel/io/verify.md` |
 | Vault shape + cap | `schema/write-gate.md` |
-| Routing / folded aliases | `ROUTING.md` |
+| Routing behavior | `ROUTING.md` |
+| Route targets, evidence, aliases, examples | `routing/registry.json` |
 | Locked product calls | `DECISIONS.md` |
 | How-to | this file |
 | OpenCode slash stubs | `hosts/opencode/commands/` |
 | OpenCode host pointer | `~/.config/opencode/AGENTS.md` |
+
+## One Front Door
+
+Use `/fr <outcome in normal language>`. A high-confidence route continues into the owning mode in the same turn; never repeat the command. Medium confidence asks one contrast question. Low confidence shows six outcome groups, not 67 modes.
+
+OpenCode convenience aliases under `hosts/opencode/commands/` are real commands. Claude/Codex use `/fr <outcome>` or one of the registered surfaces.
 
 ## Vault write (every command)
 
@@ -57,9 +65,27 @@ Do not open a new feature folder. Patch the same package.
 |---|---|---|
 | Code moved, docs lag | `/fr-sdlc` sync | Only the wrong file |
 | Contract change (flow, owner, API, data) | `/fr-design` | `design.md` + matching part · HTTP → `api/` · irreversible → ADR |
-| New slice in the same boundary | queue then `/fr-implement` | New `queue.md` row + `work/TODO-…` · Intent/Design only if scope changes |
-| Bug / review follow-up | `/fr-fix` | `fixes/` or `work` · Design if the contract changed |
+| Several dependent slices | `/fr-slice` | Vertical `work-item`s + blocker graph; wide change uses expand → migrate → contract |
+| One queue item | `/fr-implement` | One `queue.md` row + `work/TODO-…` · Intent/Design only if scope changes |
+| Hard bug / performance regression | `/fr-debug` | Red-capable loop → minimal repro → falsifiable hypotheses → regression seam → `fix-note` |
+| Incident / review follow-up | `/fr-fix` | `runbook`, `fix-note`, or `work` · Design if intended behavior changed |
 | New review | `/fr-review` [`เข้มงวด`/`strict`] | New `reports/YYYY-MM-DD - …`. Strict offers a skip/3/5 specialist panel; the bar is the same either way |
+
+## Focused SDLC Modes
+
+Aliases route into `/fr-sdlc`; they do not create extra surfaces.
+
+| Signal / alias | Mode | Outcome |
+|---|---|---|
+| `/fr-experiment` | `design-experiment` | Disposable evidence for one logic/UI decision |
+| `/fr-plan-large` | `decision-map` | Destination + decision frontier + fog across sessions |
+| `/fr-architecture-review` | `architecture-improvement` | Ranked deep-module opportunities; no refactor yet |
+| `/fr-triage` | `work-intake` | Verified issue/PR routed to agent, human, info, or wontfix |
+| `/fr-questionnaire` | `stakeholder-questions` | Questions for the person who owns missing knowledge |
+| `/fr-wizard` | `guided-procedure` | Safe interactive script for human-only setup/cutover |
+| `/fr-retro` | `environment` | One evidence-backed improvement to agent navigation/checks/tools |
+
+Travel planning through `/fr-life logistics` writes one canonical `trip-plan` with itinerary, booking state, departure checklist, budget snapshot, and backups. Detailed tasks, transactions, and heavy risks stay in linked personal artifacts.
 
 Patch: same type and heading order · `Doc history` row · `rev++` only for contract or data-shape · hub Links stay on `intent.md`. No `flow-2.md` / Design v2.
 

@@ -32,6 +32,9 @@ One file per type. That file **is** the vault template. `<!-- fill: -->` is agen
 | release-notes | `types/software/release-notes.md` |
 | feature-plan | `types/software/feature-plan.md` |
 | audit-plan | `types/software/audit-plan.md` |
+| decision-map | `types/software/decision-map.md` |
+| decision-ticket | `types/software/decision-ticket.md` |
+| questionnaire | `types/software/questionnaire.md` |
 
 ## Personal
 
@@ -39,6 +42,7 @@ One file per type. That file **is** the vault template. `<!-- fill: -->` is agen
 |---|---|
 | personal-goals | `types/personal/personal-goals.md` |
 | personal-plan | `types/personal/personal-plan.md` |
+| trip-plan | `types/personal/trip-plan.md` |
 | personal-tasks | `types/personal/personal-tasks.md` |
 | personal-decision | `types/personal/personal-decision.md` |
 | personal-research | `types/personal/personal-research.md` |

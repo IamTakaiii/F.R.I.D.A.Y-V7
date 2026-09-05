@@ -17,7 +17,7 @@ depends_on: []
 todo_id: "{{todo_id}}"
 delivery: todo
 ---
-<!-- fill: Outcome and DoD, Verification · omit: Plan lock unless Full · omit: What shipped / Evidence until Done · omit: Links if none -->
+<!-- fill: Outcome and DoD, Verification · omit: Blocked by if none · omit: Plan lock unless Full · omit: What shipped / Evidence until Done · omit: Links if none -->
 # TODO-{{todo_id}} — {{title}}
 
 ## Outcome and DoD
@@ -25,6 +25,10 @@ delivery: todo
 - Outcome: {{what changes}}
 - Done when: {{checkable}}
 - Invariant: {{Design cite or omit this bullet}}
+
+## Blocked by
+
+- {{work-item id and why it genuinely gates this item}}
 
 ## What shipped
 

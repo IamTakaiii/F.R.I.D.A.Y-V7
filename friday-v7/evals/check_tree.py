@@ -19,6 +19,18 @@ for p in R.glob("domains/*/plugin.json"):
     data = json.loads(p.read_text())
     for s in data.get("surfaces", []):
         reg.add(s.lstrip("/"))
+    provided = {
+        item.removeprefix("mode.").replace("_", "-")
+        for item in data.get("provides", [])
+        if item.startswith("mode.")
+    }
+    mode_dir = p.parent / "modes"
+    actual = {item.stem for item in mode_dir.glob("*.md") if "." not in item.stem}
+    if provided != actual:
+        fail(
+            f"{p.parent.name} mode registry mismatch "
+            f"extra={actual - provided} missing={provided - actual}"
+        )
 
 sur = {x.name for x in (R / "surfaces").iterdir() if (x / "SKILL.md").exists()}
 if reg != sur:
@@ -26,8 +38,16 @@ if reg != sur:
 
 cmd_dir = R / "hosts" / "opencode" / "commands"
 cmd = {p.stem for p in cmd_dir.glob("*.md")} if cmd_dir.is_dir() else set()
-if cmd != sur:
-    fail(f"opencode commands mismatch extra={cmd - sur} missing={sur - cmd}")
+route_registry = json.loads((R / "routing" / "registry.json").read_text())
+alias_cmd = {
+    alias.split()[0].lstrip("/")
+    for route in route_registry["routes"]
+    for alias in route["aliases"]
+    if alias.startswith("/") and alias.split()[0].lstrip("/") not in sur
+}
+expected_cmd = sur | alias_cmd
+if cmd != expected_cmd:
+    fail(f"opencode commands mismatch extra={cmd - expected_cmd} missing={expected_cmd - cmd}")
 for name in cmd:
     n = len((cmd_dir / f"{name}.md").read_text().splitlines())
     if n > 12:
@@ -71,7 +91,7 @@ if errors:
 
 import subprocess
 
-for script in ("check_schema.py", "check_allow.py", "check_vault.py"):
+for script in ("check_schema.py", "check_allow.py", "check_routing.py", "check_vault.py"):
     ran = subprocess.run([sys.executable, str(R / "evals" / script)], check=False)
     if ran.returncode != 0:
         sys.exit(ran.returncode)

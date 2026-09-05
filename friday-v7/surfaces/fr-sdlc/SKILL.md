@@ -1,12 +1,12 @@
 ---
 name: fr-sdlc
 description: >
-  SDLC hub. Triggers: /fr-sdlc, orient, architecture, ADR, consolidate, audit, sync, drift, timeline, init-agent, workspace, สรุปฟีเจอร์.
+  Software workflow hub. Use for /fr-sdlc and software planning/architecture/intake operations not owned by design, implement, fix, review, test, or ship.
 ---
 
 # /fr-sdlc
 
-→ domain **sdlc**. Default mode **orient**. Pick the named mode from the domain SKILL.
+→ domain **sdlc**. Resolve mode from `friday-v7/routing/registry.json`; bare command defaults to **orient**.
 
 ## Load
 1. `friday-v7/kernel/runtime.md` (once)

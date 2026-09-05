@@ -17,7 +17,11 @@
     "ship": "06 - Ship/",
     "data": "04 - Data/",
     "runbook": "07 - Operations/",
-    "audit-plan": "vault only"
+    "audit-plan": "vault only",
+    "decision-map": "03 - Features/<slug>/plans/decision-map-<slug>.md",
+    "decision-ticket": "03 - Features/<slug>/plans/<map>/decisions/DEC-NN - <title>.md",
+    "questionnaire": "03 - Features/<slug>/plans/questions/<slug>.md"
+    ,"trip-plan": "01 - Plan/Trip - <slug>.md"
   },
   "retired": [
     "design-slice",

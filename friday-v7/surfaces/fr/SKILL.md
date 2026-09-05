@@ -1,12 +1,12 @@
 ---
 name: fr
 description: >
-  Friday front door. Triggers: /fr, Friday, ช่วยหน่อย, ช่วยคิด, retro. Multi-domain. Not greeting/math.
+  Friday front door. Use for /fr, "Friday", unclear or multi-domain outcomes, and agent-environment retros. Not greeting/math.
 ---
 
 # /fr
 
-→ domain **front** mode **route**. Session retro → `domains/retro/modes/session.md`.
+→ domain **front** mode **route**. Agent-environment retro → `domains/retro/modes/environment.md`.
 
 ## Load
 1. `friday-v7/kernel/runtime.md` (once)

@@ -4,12 +4,34 @@
     {"q": "/fr-design", "surface": "/fr-design", "domain": "sdlc", "mode": "design"},
     {"q": "/fr-pr", "surface": "/fr-review", "domain": "sdlc", "mode": "review"},
     {"q": "/fr-perf", "surface": "/fr-test", "domain": "sdlc", "mode": "test"},
+    {"q": "/fr-debug", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"},
+    {"q": "/fr-slice", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "delivery-slice"},
+    {"q": "/fr-prototype", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "design-experiment"},
+    {"q": "/fr-plan-large", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "decision-map"},
+    {"q": "/fr-triage", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "work-intake"},
+    {"q": "/fr-questionnaire", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "stakeholder-questions"},
+    {"q": "/fr-wizard", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "guided-procedure"},
     {"q": "รันเทส", "surface": "/fr-test", "domain": "sdlc", "mode": "test"},
     {"q": "/fr-pipe", "surface": "/fr-pipe", "domain": "sdlc", "mode": "pipe"},
     {"q": "วนจนผ่าน", "surface": "/fr-pipe", "domain": "sdlc", "mode": "pipe"},
     {"q": "ค้นข้อมูล พร้อมแหล่ง", "surface": "/fr-research", "domain": "learn", "mode": "research"},
-    {"q": "วางแผนเที่ยว", "surface": "/fr-life", "domain": "life", "mode": "orient"},
+    {"q": "วางแผนเที่ยว", "surface": "/fr-life", "domain": "life", "mode": "logistics"},
     {"q": "Friday ช่วยคิด", "surface": "/fr", "domain": "front", "mode": "route"},
-    {"q": "docs ≠ code ทั้งโปรเจกต์", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "sync"}
+    {"q": "docs ≠ code ทั้งโปรเจกต์", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "sync"},
+    {"q": "triage PR claim และสถานะ ไม่ได้ review คุณภาพโค้ด", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "work-intake"},
+    {"q": "รีวิวโค้ดใน PR ไม่ได้ triage สถานะ issue", "surface": "/fr-review", "domain": "sdlc", "mode": "review"},
+    {"q": "diagnose request ช้า ไม่ได้ให้ทำ load test", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"},
+    {"q": "ทำ load test วัด capacity ไม่ได้หา root cause regression", "surface": "/fr-test", "domain": "sdlc", "mode": "test"},
+    {"q": "เขียน architecture ปัจจุบัน ไม่ได้ให้หา refactor", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "arch"},
+    {"q": "audit architecture code ไม่ใช่ตรวจโครง vault", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "architecture-improvement"},
+    {"q": "ทำ incident runbook ไม่ได้ให้ diagnose root cause", "surface": "/fr-fix", "domain": "sdlc", "mode": "fix"},
+    {"q": "guided setup ที่ต้องกดเว็บ ไม่ใช่ incident runbook", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "guided-procedure"},
+    {"q": "ส่งข้อมูลให้ stakeholder ไม่ได้ขอคำตอบจากเขา", "surface": "/fr-write", "domain": "writer", "mode": "brief"},
+    {"q": "ขอคำตอบจาก stakeholder ไม่ใช่เขียน brief ไปบอกเขา", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "stakeholder-questions"},
+    {"q": "แบ่ง design ที่ lock แล้วเป็น vertical slices", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "delivery-slice"},
+    {"q": "งานใหญ่นี้เกินหนึ่ง session และยังเห็นทางไม่ครบ", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "decision-map"}
+    ,{"q": "/fr ช่วย reproduce แล้วหา root cause ของบั๊กนี้", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"}
+    ,{"q": "/fr-fix diagnose root cause ของ timeout", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"}
+    ,{"q": "/fr-sdlc ทำชุดคำถามส่งให้ฝ่ายบัญชีเพื่อเอาข้อมูลที่เราขาด", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "stakeholder-questions"}
   ]
 }

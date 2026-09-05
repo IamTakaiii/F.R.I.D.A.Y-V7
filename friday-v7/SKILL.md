@@ -3,7 +3,7 @@ name: friday-v7
 version: 0.1.0
 description: >
   F.R.I.D.A.Y. v7 parent — Second Brain OS + thinking partner.
-  Routes /fr-* (sdlc, research, learn, write, brain, life, retro, httpyac, tool, ticktick).
+  Routes /fr natural-language outcomes directly to one of 67 modes via the routing registry.
   Artifact schema is first-class (card + parts + line caps). Load friday-v7 only.
 ---
 

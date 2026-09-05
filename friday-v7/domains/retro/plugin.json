@@ -2,9 +2,9 @@
   "id": "domain.retro",
   "version": "0.2.0",
   "display_name": "Retro",
-  "description": "Opt-in session retro via /fr. Never auto-run.",
+  "description": "Opt-in agent-environment retro via /fr. Never auto-run.",
   "surfaces": [],
-  "provides": ["mode.session"],
+  "provides": ["mode.environment"],
   "hooks": { "on_pack_enter": true, "on_session_end": true },
   "entry": "SKILL.md"
 }

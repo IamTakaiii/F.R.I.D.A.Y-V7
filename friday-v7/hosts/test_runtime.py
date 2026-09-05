@@ -52,8 +52,15 @@ class RuntimeTest(unittest.TestCase):
         first = self.event("codex", "pack", "UserPromptSubmit", prompt="/fr-design search")
         second = self.event("codex", "pack", "UserPromptSubmit", prompt="/fr-design again")
 
-        self.assertIn("pack=pack.sdlc", first["hookSpecificOutput"]["additionalContext"])
+        self.assertIn("pack=domain.sdlc", first["hookSpecificOutput"]["additionalContext"])
         self.assertIsNone(second)
+
+    def test_folded_alias_enters_owning_pack(self) -> None:
+        output = self.event("codex", "alias", "UserPromptSubmit", prompt="/fr-debug intermittent failure")
+
+        context = output["hookSpecificOutput"]["additionalContext"]
+        self.assertIn("pack=domain.sdlc", context)
+        self.assertIn("surface=fr-fix", context)
 
     def test_supervised_write_requires_a_then_allows_exact_path(self) -> None:
         denied = self.event(
