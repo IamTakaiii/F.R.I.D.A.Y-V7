@@ -9,15 +9,16 @@ Writes: `kernel/io/write.md`. Vault: `kernel/brain/port.md` + `schema/`.
 ## Modes
 | Mode | File |
 |---|---|
-| orient | `modes/orient.md` |
 | init | `modes/init.md` |
 | plan | `modes/plan.md` |
 | budget | `modes/budget.md` |
 | weekly | `modes/weekly.md` |
 | logistics | `modes/logistics.md` |
 
+## Before the mode
 
-
+Outcome in one line. No personal project under `20 - Personal/` yet → `init` first. Load `standards/shape.md` only when shape or modules are unclear.
+Which mode is the router's job (`ROUTING.md`) — this domain keeps no second classification table.
 
 
 ## Done

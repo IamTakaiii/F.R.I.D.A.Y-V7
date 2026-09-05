@@ -39,6 +39,7 @@ Risk dims: `standards/execution.md`. Tier is locked once per work package; chang
 | feature-consolidate | `modes/feature-consolidate.md` | `/fr-sdlc` |
 | decision | `modes/decision.md` | `/fr-sdlc` |
 | implement | `modes/implement.md` | `/fr-implement` |
+| tdd | `modes/tdd.md` | `/fr-implement` · red→green at confirmed seams |
 | publish | `modes/publish.md` | `/fr-publish` |
 | timeline | `modes/timeline.md` | `/fr-sdlc` or `/fr-write` |
 | fix | `modes/fix.md` | `/fr-fix` (review follow-up, runbook) |
@@ -59,7 +60,7 @@ No `design-slice`. Reports use `quality-report`.
 
 ## On demand
 
-`standards/feature-identity.md` · `execution.md` · `code.md` · `lens.md` · `deps.md` · `data.md` · `review.md`(+`.deep`) · `test.md`(+`.deep`) · `perf.md` · `audit.md` · `gates/ready.md` · `gates/done.md` · `gates/ship.md`
+`standards/feature-identity.md` · `execution.md` · `code.md` · `lens.md` · `deps.md` · `data.md` · `review.md`(+`.deep`) · `test.md`(+`.deep`) · `tdd.md` · `perf.md` · `audit.md` · `gates/ready.md` · `gates/done.md` · `gates/ship.md`
 
 ## Done
 

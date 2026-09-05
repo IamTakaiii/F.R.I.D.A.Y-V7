@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -18,10 +17,6 @@ def route(prompt: str, registry: dict | None = None) -> dict:
     data = registry or json.loads(REGISTRY.read_text(encoding="utf-8"))
     text = normalize(prompt)
     scoring = data["scoring"]
-
-    for item in data["routes"]:
-        if text in {normalize(example) for example in item.get("examples", [])}:
-            return {"confidence": "high", "winner": item, "candidates": [item]}
 
     surfaces = {normalize(item["surface"]) for item in data["routes"]}
     aliases = []

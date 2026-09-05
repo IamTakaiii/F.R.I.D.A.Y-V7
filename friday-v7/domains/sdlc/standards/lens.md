@@ -57,3 +57,5 @@ Severity anchor — the rubric in `review.md` wins on conflict:
 | style · lang-fw | — | anti-pattern that hides a bug | naming · convention |
 
 Also: happy/empty/replay · missing Must/false green (C5). Simulate a likely next change; if this shape would fight it → change-cost.
+
+Tests **in** the diff are judged against `tdd.md`: unconfirmed seam · implementation-coupled · tautological → C5. A tautological test is `major`, not a nit — it passes by construction, so it is false green no matter what coverage says.

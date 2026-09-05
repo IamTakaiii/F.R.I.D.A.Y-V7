@@ -9,13 +9,10 @@ Writes: `kernel/io/write.md`. Vault: `kernel/brain/port.md` + `schema/`.
 ## Modes
 | Mode | File |
 |---|---|
-| orient | `modes/orient.md` |
+| orient | `modes/orient.md` · journey home |
 | from-design | `modes/from-design.md` |
 | write | `modes/write.md` |
-| run | `modes/run.md` |
-| note | `modes/note.md` |
-
-
+| run | `modes/run.md` · optional `note` record |
 
 
 

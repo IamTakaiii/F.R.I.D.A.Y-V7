@@ -2,12 +2,11 @@
   "id": "domain.life",
   "version": "0.1.0",
   "display_name": "Life",
-  "description": "Personal projects \u2014 not SDLC. Vault `20 - Personal/`. Types: `schema/types/personal/`.",
+  "description": "Personal projects — not SDLC. Vault `20 - Personal/`. Types: `schema/types/personal/`.",
   "surfaces": [
     "/fr-life"
   ],
   "provides": [
-    "mode.orient",
     "mode.init",
     "mode.plan",
     "mode.budget",

@@ -22,6 +22,17 @@ One request has one primary route. Secondary work is an explicit handoff.
 
 The deterministic aid `routing/route.py` uses the registry's evidence weights. The LLM may understand paraphrases the script cannot, but it must obey the same precedence, exclusions, and confidence actions.
 
+## Evidence contract
+
+`routing/registry.json` carries signals only. Examples live in `evals/routing-examples.json` and are **proven by score** — there is no exact-match shortcut, so an example that only passes because it is listed is a failing example.
+
+Two rules keep sibling routes apart:
+
+1. A `negative` names the **sibling's canonical positive phrase**, never a generic word. `load test capacity` discriminates; `test` does not.
+2. A contrast example ("do X, not Y") mentions Y, so Y's negative fires against X. The intended route therefore needs **≥2 positive hits** on the intent half, and the rival needs a negative naming X. One hit each is a tie, and a tie is `medium` — correct behaviour, but not a passing example.
+
+Mine positives from the intent half only. Never promote the contrast half to a positive.
+
 ## Hierarchy
 
 The registry targets `domain.mode` and its owning surface. `/fr` may load that surface and mode directly after a high-confidence route. Domain surfaces use the same registry filtered to their domain; they do not maintain another classification table.
@@ -44,6 +55,6 @@ Aliases are OpenCode conveniences, not extra surfaces. Claude/Codex use `/fr <ou
 
 ## Boundaries
 
-`negative` evidence is load-bearing. In particular: intake ≠ review · debug ≠ load test · current architecture ≠ architecture improvement · vault audit ≠ code architecture · incident runbook ≠ guided setup · stakeholder brief ≠ stakeholder questions · Design ≠ experiment · locked slices ≠ uncertain decision map.
+`negative` evidence is load-bearing. In particular: intake ≠ review · debug ≠ load test · current architecture ≠ architecture improvement · vault audit ≠ code architecture · incident runbook ≠ guided setup · stakeholder brief ≠ stakeholder questions · Design ≠ experiment · locked slices ≠ uncertain decision map · TDD loop ≠ run the existing suite.
 
 Outcome beats a keyword. Never route v7 to v5/v6. Durable writes still follow `schema/allow.md` and `schema/placement.md`.

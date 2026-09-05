@@ -18,10 +18,10 @@ Cold-start every `/fr-*`. **This file is the only load SoT.**
 | **One mode** | One domain mode file at a time. |
 | **Depth** | Chat short: answer first. |
 | **State** | No silent handoff/index/changelog/memory writes. |
+| **Brain read** | Every mode may read the configured brain (`local` default; Obsidian opt-in). Before saying a source, fact, intent, or prior artifact is absent, resolve `kernel/brain/port.md` + one adapter and perform a bounded lookup. Never treat a repo-only search as proof that the vault is empty. |
 | **Artifacts** | Durable docs → vault only, **same gate every command** (`io/write.md` → `schema/write-gate.md`). Cite paths. Chat ≠ delivery. Session `nosave` = no vault write. |
 | **Card/deep** | Mode card first; `*.deep.md` on score, Design Capture lock, `ละเอียด`, or dispute (`extras/context-load.md`). |
 | **Caps** | Write-gate + `max_lines` or the write failed. |
-| **Work pulse** | Batch independent tools in one turn (`turn.batch` default true). |
 
 ## Cold path
 
@@ -31,12 +31,12 @@ runtime.md → domains/<name>/SKILL.md → one modes/*.md
 
 Handoff `{agent_root}/index.md` only if resume **and** root exists.
 
-**Never cold-load:** memory · skill-draft · all gates · counsel/prose/evidence · whole vault · forced `.agent` search · `schema/` until the mode writes or migrates an artifact.
+**Never cold-load:** memory · skill-draft · all gates · counsel/prose/evidence · **the whole vault** · forced `.agent` search · `schema/` until the mode writes or migrates an artifact. A bounded vault lookup is allowed and required when checking whether relevant context exists.
 
 ## Work pulse
 
 1. Plan short ordered steps.
-2. Independent tools in one turn.
+2. Independent tools in one turn (`turn.batch` default true).
 3. Sequential only when B needs A's result.
 4. No blind explore when a path is already known.
 5. Don't re-dump large tool output into chat.
@@ -49,7 +49,7 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | create/edit | `io/write.md` (vault docs also load `schema/write-gate.md`) |
 | claims / dispute / research | `io/evidence.md` |
 | durable prose | `thinking/prose.md` |
-| vault I/O | `brain/port.md` + one adapter |
+| vault I/O (read or write) | `brain/port.md` + one adapter |
 | handoff / httpyac home | `extras/agent-root.md` (miss = none) |
 | verify | `io/verify.md` |
 | session close | `session/session.md` (+ `session/memory.md` if T1–T5) |
@@ -73,6 +73,6 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | Subagents | 0 — named exceptions in `extras/subagent.md` | ≤2 if user opts — same exceptions |
 | Panel N | 0, or 2–5 if user opts | 0, or 2–5 if user opts |
 
-Any output that scores or passes a gate names the profile it ran under — `lean` unless one of the two setters above fired. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
+Any output that scores or passes a gate names its profile. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
 
-**Hygiene:** decide continuity at the phase boundary only (`session/phase.md`) · no kernel re-read · no domain preload.
+**Hygiene:** decide continuity at the phase boundary only · no domain preload.

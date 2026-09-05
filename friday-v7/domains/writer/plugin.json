@@ -2,12 +2,11 @@
   "id": "domain.writer",
   "version": "0.1.0",
   "display_name": "Writer",
-  "description": "Clear shareable documents. Headings English. Types live in `schema/` \u2014 no writer-owned release-notes twin.",
+  "description": "Clear shareable documents. Headings English. Types live in `schema/` — no writer-owned release-notes twin.",
   "surfaces": [
     "/fr-write"
   ],
   "provides": [
-    "mode.orient",
     "mode.note",
     "mode.brief",
     "mode.spec",

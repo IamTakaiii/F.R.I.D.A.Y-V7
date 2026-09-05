@@ -1,0 +1,290 @@
+{
+ "version": "1.0.0",
+ "examples": {
+  "front.route": [
+   "/fr",
+   "Friday ช่วยเลือกว่าจะเริ่มตรงไหน",
+   "ยังไม่แน่ใจว่าควรออกแบบหรือทดลองก่อน"
+  ],
+  "sdlc.orient": [
+   "/fr-sdlc",
+   "ช่วยดูภาพรวมโปรเจกต์ซอฟต์แวร์แล้วบอกงานถัดไป",
+   "orient workspace ก่อน ยังไม่ให้ implement"
+  ],
+  "sdlc.summary": [
+   "/fr-sdlc summary",
+   "สรุปสถานะฟีเจอร์ checkout จากเอกสารปัจจุบัน",
+   "สรุปฟีเจอร์ ไม่ต้อง polish เป็น stakeholder brief"
+  ],
+  "sdlc.arch": [
+   "/fr-arch",
+   "เขียน architecture ปัจจุบันของระบบนี้",
+   "อัปเดต architecture document ไม่ได้ให้หา refactor"
+  ],
+  "sdlc.architecture-improvement": [
+   "/fr-architecture-review",
+   "ช่วยหา module ที่ควรรวม behavior ให้ลึกขึ้น",
+   "audit architecture code ไม่ใช่ตรวจโครง vault"
+  ],
+  "sdlc.design": [
+   "/fr-design",
+   "ช่วยออกแบบฟีเจอร์แจ้งเตือน",
+   "ออกแบบ behavior ให้ชัดก่อน ยังไม่ทำ prototype"
+  ],
+  "sdlc.design-experiment": [
+   "/fr-experiment",
+   "ทำของทิ้งเพื่อทดลองว่า state model นี้เวิร์กไหม",
+   "ทำ UI variants เพื่อเลือก design ไม่ใช่ production"
+  ],
+  "sdlc.decision-map": [
+   "/fr-plan-large",
+   "งานใหญ่นี้เกินหนึ่ง session และยังเห็นทางไม่ครบ",
+   "วาง decision frontier ก่อน ยังไม่แตก implementation tickets"
+  ],
+  "sdlc.delivery-slice": [
+   "/fr-slice",
+   "แบ่ง design ที่ lock แล้วเป็น vertical slices",
+   "แตกงานพร้อม blocker ไม่ได้กลับไปออกแบบใหม่"
+  ],
+  "sdlc.feature-consolidate": [
+   "/fr-consolidate",
+   "รวม feature folders ที่ซ้ำกัน",
+   "consolidate เอกสารฟีเจอร์ ไม่ใช่ refactor code"
+  ],
+  "sdlc.decision": [
+   "/fr-decision",
+   "บันทึก ADR เรื่องเลือก event store",
+   "record technical decision ไม่ใช่ personal decision"
+  ],
+  "sdlc.implement": [
+   "/fr-implement",
+   "ลงมือทำ TODO-03 ที่ ready แล้ว",
+   "implement ticket ตาม design ไม่ได้ให้แก้บั๊ก"
+  ],
+  "sdlc.tdd": [
+   "/fr-tdd",
+   "เขียนเทสก่อนแล้วค่อย implement ที่ seam ที่ตกลงกัน",
+   "ทำ red green refactor ไม่ได้ให้รัน suite ที่มีอยู่"
+  ],
+  "sdlc.publish": [
+   "/fr-publish",
+   "publish เอกสารที่ approve แล้วเข้า Git",
+   "commit docs ที่ผ่าน gate ไม่ใช่เขียน release notes"
+  ],
+  "sdlc.timeline": [
+   "/fr-timeline",
+   "ทำ timeline ของการเปลี่ยน checkout",
+   "สรุปลำดับเหตุการณ์ของ feature ไม่ใช่ status summary"
+  ],
+  "sdlc.fix": [
+   "/fr-fix-from-review",
+   "แก้ must-fix จาก code review",
+   "ทำ incident runbook ไม่ได้ให้ diagnose root cause"
+  ],
+  "sdlc.debug": [
+   "/fr-debug",
+   "ช่วย reproduce แล้วหา root cause ของบั๊กนี้",
+   "diagnose request ช้า ไม่ได้ให้ทำ load test"
+  ],
+  "sdlc.work-intake": [
+   "/fr-triage",
+   "ตรวจ issue นี้แล้วจัดว่า ready for agent ไหม",
+   "triage PR claim และสถานะ ไม่ได้ review คุณภาพโค้ด"
+  ],
+  "sdlc.stakeholder-questions": [
+   "/fr-questionnaire",
+   "ทำชุดคำถามส่งให้ฝ่ายบัญชีเพื่อเอาข้อมูลที่เราขาด",
+   "ขอคำตอบจาก stakeholder ไม่ใช่เขียน brief ไปบอกเขา"
+  ],
+  "sdlc.guided-procedure": [
+   "/fr-wizard",
+   "ทำสคริปต์พาคนตั้ง secrets ผ่าน dashboard",
+   "guided setup ที่ต้องกดเว็บ ไม่ใช่ incident runbook"
+  ],
+  "sdlc.sync": [
+   "/fr-sync",
+   "ตรวจและแก้เอกสารที่ไม่ตรงกับ code",
+   "sync docs กับ implementation ไม่ใช่ออกแบบ behavior ใหม่"
+  ],
+  "sdlc.review": [
+   "/fr-review",
+   "review diff นี้และหา correctness risks",
+   "รีวิวโค้ดใน PR ไม่ได้ triage สถานะ issue"
+  ],
+  "sdlc.test": [
+   "/fr-test",
+   "รัน tests และดู coverage",
+   "ทำ load test วัด capacity ไม่ได้หา root cause regression"
+  ],
+  "sdlc.audit-struct": [
+   "/fr-audit",
+   "ตรวจโครงสร้าง feature folders ใน vault",
+   "audit vault placement ไม่ใช่ architecture code"
+  ],
+  "sdlc.ship": [
+   "/fr-ship",
+   "เช็กว่า release นี้พร้อม ship ไหม",
+   "ทำ go no-go ไม่ได้แค่ publish docs"
+  ],
+  "sdlc.init-agent": [
+   "/fr-init-agent",
+   "ตั้งค่า .agent สำหรับ repo นี้",
+   "initialize agent context ไม่ใช่ project architecture"
+  ],
+  "sdlc.panel": [
+   "/fr-panel",
+   "ขอมุมชนจากหลายบทบาท",
+   "brainstorm หลายมุม ไม่ได้ scored review"
+  ],
+  "sdlc.pipe": [
+   "/fr-pipe",
+   "วน review fix test จนผ่าน",
+   "รัน quality loop ไม่ใช่ review รอบเดียว"
+  ],
+  "brain.capture": [
+   "/fr-brain capture",
+   "จดความคิดนี้ไว้ใน inbox",
+   "capture ก่อน ยังไม่จัดหมวด"
+  ],
+  "brain.inbox": [
+   "/fr-brain inbox",
+   "ช่วยเคลียร์ brain inbox",
+   "จัด inbox และ promote ไม่ใช่ capture ใหม่"
+  ],
+  "brain.link": [
+   "/fr-brain link",
+   "เชื่อมโน้ตสองใบนี้",
+   "หา relation ระหว่าง notes ไม่ใช่สร้าง MOC"
+  ],
+  "brain.moc": [
+   "/fr-brain moc",
+   "สร้าง MOC ของหัวข้อนี้",
+   "ทำ index ของ notes ไม่ใช่แค่ link สองใบ"
+  ],
+  "brain.health": [
+   "/fr-brain health",
+   "ตรวจสุขภาพ Obsidian vault",
+   "หา orphan และ stale links ไม่ใช่ project audit"
+  ],
+  "httpyac.orient": [
+   "/fr-httpyac",
+   "ช่วยดูว่าจะเริ่ม httpyac journey ตรงไหน",
+   "orient .http tests ก่อน ยังไม่เขียน"
+  ],
+  "httpyac.from-design": [
+   "/fr-httpyac from-design",
+   "สร้าง httpyac journeys จาก design นี้",
+   "derive .http from contract ไม่ใช่เขียน ad hoc"
+  ],
+  "httpyac.write": [
+   "/fr-httpyac write",
+   "เขียน .http สำหรับ login journey",
+   "author journey ใหม่ ยังไม่รัน"
+  ],
+  "httpyac.run": [
+   "/fr-httpyac run",
+   "รัน httpyac journey นี้",
+   "execute .http ไม่ได้เขียนใหม่"
+  ],
+  "learn.research": [
+   "/fr-research",
+   "ค้นข้อมูลเรื่องนี้พร้อมอ้างแหล่งหลัก",
+   "เปรียบเทียบ sources ไม่ได้สอนเป็นบทเรียน"
+  ],
+  "learn.teach": [
+   "/fr-learn teach",
+   "สอนฉันเรื่อง event sourcing",
+   "อธิบาย concept นี้ ไม่ได้จัด learning path"
+  ],
+  "learn.path": [
+   "/fr-learn path",
+   "ทำ learning path สำหรับ distributed systems",
+   "วางลำดับเรียน ไม่ได้สอน lesson แรกทันที"
+  ],
+  "learn.distill": [
+   "/fr-learn distill",
+   "สกัดสิ่งที่เรียนจาก session นี้",
+   "distill knowledge ไม่ใช่ research เพิ่ม"
+  ],
+  "life.init": [
+   "/fr-life init",
+   "เริ่ม personal project เรื่องย้ายบ้าน",
+   "ตั้งเป้าหมายโครงการส่วนตัวใหม่"
+  ],
+  "life.plan": [
+   "/fr-life plan",
+   "วางแผนเป้าหมายสุขภาพสามเดือน",
+   "ทำ personal plan ไม่ใช่ logistics ทริป"
+  ],
+  "life.budget": [
+   "/fr-life budget",
+   "ช่วยวางงบย้ายบ้าน",
+   "คำนวณ personal budget พร้อมข้อจำกัด"
+  ],
+  "life.weekly": [
+   "/fr-life weekly",
+   "ทำ weekly review ชีวิตส่วนตัว",
+   "ทบทวนสัปดาห์ของฉัน ไม่ใช่ agent environment retro"
+  ],
+  "life.logistics": [
+   "/fr-life logistics",
+   "วางแผนเที่ยวญี่ปุ่นพร้อม booking dependencies",
+   "จัด logistics ทริป ไม่ใช่ long-term personal plan"
+  ],
+  "retro.environment": [
+   "/fr-retro",
+   "retro session นี้เพื่อปรับ agent environment",
+   "หา navigation checks tools ที่ควรแก้ ไม่ใช่ weekly life review"
+  ],
+  "tool.orient": [
+   "/fr-tool",
+   "ช่วยดูว่าจะทำ internal helper นี้ยังไง",
+   "orient เครื่องมือภายใน ไม่ใช่ product feature"
+  ],
+  "tool.shape": [
+   "/fr-tool shape",
+   "กำหนด interface ของ internal CLI นี้",
+   "shape tool ก่อน build"
+  ],
+  "tool.build": [
+   "/fr-tool build",
+   "สร้าง internal CLI ตาม shape",
+   "build helper ไม่ใช่ harden ของเดิม"
+  ],
+  "tool.harden": [
+   "/fr-tool harden",
+   "เพิ่ม safety ให้ internal script นี้",
+   "harden tool ที่มีแล้ว ไม่ใช่ productize"
+  ],
+  "writer.note": [
+   "/fr-write note",
+   "เขียนโน้ตสรุปเรื่องนี้",
+   "ทำ durable note ไม่ใช่ raw inbox capture"
+  ],
+  "writer.brief": [
+   "/fr-write brief",
+   "เขียน stakeholder brief เพื่อสื่อสิ่งที่เรารู้",
+   "ส่งข้อมูลให้ stakeholder ไม่ได้ขอคำตอบจากเขา"
+  ],
+  "writer.spec": [
+   "/fr-write spec",
+   "สังเคราะห์บทสนทนานี้เป็น spec",
+   "เขียน spec จาก decision ที่มีแล้ว ไม่ต้อง grill"
+  ],
+  "writer.present": [
+   "/fr-write present",
+   "ทำเนื้อหานี้เป็น presentation",
+   "จัด narrative สำหรับนำเสนอ ไม่ใช่ brief"
+  ],
+  "writer.polish": [
+   "/fr-write polish",
+   "ขัดเกลาเอกสารนี้ให้อ่านง่าย",
+   "polish wording ไม่ได้เปลี่ยน product behavior"
+  ],
+  "writer.release-notes": [
+   "/fr-write release-notes",
+   "เขียน release notes รุ่นนี้",
+   "สื่อการเปลี่ยนแปลง ไม่ได้ตัดสิน go no-go"
+  ]
+ }
+}

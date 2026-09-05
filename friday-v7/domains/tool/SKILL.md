@@ -13,9 +13,10 @@ Writes: `kernel/io/write.md`. Vault: `kernel/brain/port.md` + `schema/`.
 | shape | `modes/shape.md` |
 | build | `modes/build.md` |
 | harden | `modes/harden.md` |
-| catalog | `modes/catalog.md` |
 
+## Catalog (optional)
 
+Recording a finished tool is a line, not a mode: prefer a one-liner in the existing `scripts/README`, `tools/README`, or Makefile. Handoff Tools row only if `{agent_root}` exists (write-gate; never silent). Vault `note` only on ask — do not invent folder trees. No secrets. Slug exists → update in place.
 
 
 

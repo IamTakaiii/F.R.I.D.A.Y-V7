@@ -33,5 +33,9 @@
     ,{"q": "/fr ช่วย reproduce แล้วหา root cause ของบั๊กนี้", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"}
     ,{"q": "/fr-fix diagnose root cause ของ timeout", "surface": "/fr-fix", "domain": "sdlc", "mode": "debug"}
     ,{"q": "/fr-sdlc ทำชุดคำถามส่งให้ฝ่ายบัญชีเพื่อเอาข้อมูลที่เราขาด", "surface": "/fr-sdlc", "domain": "sdlc", "mode": "stakeholder-questions"}
+    ,{"q": "/fr-implement tdd", "surface": "/fr-implement", "domain": "sdlc", "mode": "tdd"}
+    ,{"q": "อยากทำ test first ที่ seam ที่ตกลงกันไว้", "surface": "/fr-implement", "domain": "sdlc", "mode": "tdd"}
+    ,{"q": "ลงมือ implement แบบ test first", "surface": "/fr-implement", "domain": "sdlc", "mode": "tdd"}
+    ,{"q": "รันเทสที่มีอยู่ ไม่ได้ให้เขียนเทสก่อน", "surface": "/fr-test", "domain": "sdlc", "mode": "test"}
   ]
 }

@@ -10,8 +10,7 @@
     "mode.orient",
     "mode.from_design",
     "mode.write",
-    "mode.run",
-    "mode.note"
+    "mode.run"
   ],
   "hooks": {
     "on_pack_enter": true,

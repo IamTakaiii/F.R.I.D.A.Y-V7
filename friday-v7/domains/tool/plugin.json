@@ -2,7 +2,7 @@
   "id": "domain.tool",
   "version": "0.1.0",
   "display_name": "Internal Tool",
-  "description": "Internal CLI/script/ops helpers \u2014 not product SDLC.",
+  "description": "Internal CLI/script/ops helpers — not product SDLC.",
   "surfaces": [
     "/fr-tool"
   ],
@@ -10,8 +10,7 @@
     "mode.orient",
     "mode.shape",
     "mode.build",
-    "mode.harden",
-    "mode.catalog"
+    "mode.harden"
   ],
   "hooks": {
     "on_pack_enter": true,

@@ -3,7 +3,7 @@
 | ID | Topic | Decision |
 |---|---|---|
 | D1 | Surfaces | `/fr-*` prefix; thin stubs from `plugin.json`; no fat surfaces |
-| D2 | Brain | Resolve via `kernel/brain/port.md` only. Prefer configured Obsidian vault; fallback `~/.local/share/friday/` (`local`) on first approved write |
+| D2 | Brain | Resolve via `kernel/brain/port.md` only. Default backend `local` at `~/.local/share/friday/` (create on first approved write). Obsidian is opt-in: explicit `brain.backend: obsidian` + vault path, or a resolved root that contains `.obsidian/`. Same `schema/vault.md` layout either way |
 | D3 | Plugins | Manifest + hooks. Claude/Codex: `hosts/runtime.py`. No pack shell scripts |
 | D4 | SDLC artifacts | Feature List row + Intent always. Design for M/L or durable technical decision. Work-item evidence for every implemented queue row. No `00 - Index.md`. No Threads folder |
 | D5 | Headings | English always; body follows confirmed project language |
@@ -14,7 +14,7 @@
 | D10 | Folders | Companion folders created with first file only |
 | D11 | Vault numbers | Fixed: Data=`04`, Labs=`05` (opt-in), Ship=`06`, Operations=`07`. Feature inner files are unnumbered names |
 | D12 | Types retired | `design-slice`, `policy-cost-spike`, vault types `lab`/`guide`/`httpyac`, aliases `brief`/`todo`/`work-log`, field `load_profile` |
-| D13 | Collapse set | 19 surfaces. Folded names only in `ROUTING.md`. Merged types: `quality-report`, `brief`, `note`, architecture `stack` part. |
+| D13 | Collapse set | 18 surfaces. Folded names only in `ROUTING.md`. Merged types: `quality-report`, `brief`, `note`, architecture `stack` part. Surface and mode counts are derived from `domains/*/plugin.json` — never asserted anywhere else. |
 | D14 | Vault consistency | Every durable vault write uses the same gate (`schema/write-gate.md`): type + placement + template + cap. Command/domain must not define a second shape. |
 | D15 | Allow | Mode may write only types in `schema/allow.md`. |
 | D16 | Vault check | `evals/check_vault.py` against `FRIDAY_BRAIN_ROOT` when set; templates checked by `check_schema.py`. |
@@ -29,6 +29,8 @@
 | D25 | Review scoring | Dim scale `0 4 6 8 10`; `10` needs a cite and zero findings; ★ must be 10. `score_pct` divides by `10 × Σweights` — a plain weighted sum is not a percentage. One bar for every run; `เข้มงวด`/`strict` changes who hunts, never the bar. |
 | D26 | Determinism | Scope lock before reading · ledger row per lens/dim (`clean` · finding · `N/A`+reason; missing row = FAIL) · severity by consequence for all three tracks · tier and risk chosen by stated triggers · scored output names its profile. Re-runs are compared on the ledger, never on `%`. **Exception:** the Friday skill tree is not a vault project, so a review or audit of it is chat-only. Its ledger dies with the session — say so, and never claim cross-run comparability for those runs. |
 | D27 | Freshness | `superseded`/`archived` is never truth. A card quoted without opening its source is `Unverified(<updated>)`. Source wins for current behavior, card wins for intent; conflicts are reported, never merged. |
+| D28 | TDD | Red→green is mode `sdlc.tdd` under `/fr-implement` — an alias, not a 20th surface (D13 holds). No test at a seam the user has not confirmed; no correct seam is an architecture finding, never a shallow test. **Refactoring is not in the loop** — it belongs to `/fr-review`. Test *quality* is owned by `standards/tdd.md` only; `standards/test.md` keeps coverage evidence. A tautological test is `major` on C5: false green regardless of coverage. |
+| D29 | Routing evidence | `routing/registry.json` carries signals only; examples live in `evals/routing-examples.json` and must route **by score** — no exact-match shortcut, ever. A `negative` names the sibling's canonical phrase, never a generic word. Contrast examples need ≥2 positive hits on the intent half plus a negative on the rival. `check_tree.py` is the only green light and runs every sibling eval. |
 
 ## SDLC tiers
 

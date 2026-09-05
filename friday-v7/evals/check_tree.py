@@ -91,7 +91,7 @@ if errors:
 
 import subprocess
 
-for script in ("check_schema.py", "check_allow.py", "check_routing.py", "check_vault.py"):
+for script in ("check_schema.py", "check_allow.py", "check_routing.py", "check_rubric.py", "check_vault.py"):
     ran = subprocess.run([sys.executable, str(R / "evals" / script)], check=False)
     if ran.returncode != 0:
         sys.exit(ran.returncode)

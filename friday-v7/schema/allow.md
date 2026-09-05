@@ -18,6 +18,7 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | feature-consolidate | `/fr-sdlc` | intent, design, queue, feature-list |
 | decision | `/fr-sdlc` | adr |
 | implement | `/fr-implement` | work-item, queue |
+| tdd | `/fr-implement` | work-item, queue |
 | publish | `/fr-publish` | none |
 | timeline | `/fr-sdlc` | timeline-log |
 | fix | `/fr-fix` | fix-note, runbook, design, work-item, queue |
@@ -51,36 +52,25 @@ If the type is not in this row, **do not write it**. Pick another mode or do not
 | teach | `/fr-learn` | note |
 | path | `/fr-learn` | note |
 | distill | `/fr-learn` | note |
-| orient | `/fr-write` | none |
 | note | `/fr-write` | note, glossary |
 | brief | `/fr-write` | note |
 | spec | `/fr-write` | note |
 | present | `/fr-write` | note |
 | polish | `/fr-write` | patch |
 | release-notes | `/fr-write` | release-notes, note |
-| orient | `/fr-life` | none |
 | init | `/fr-life` | brief, personal-goals |
 | plan | `/fr-life` | personal-plan |
 | budget | `/fr-life` | personal-budget |
 | weekly | `/fr-life` | note, personal-outcome |
 | logistics | `/fr-life` | trip-plan, personal-tasks, personal-budget, personal-risk, personal-decision, note |
-| init | `/fr-ticktick` | none |
-| setup | `/fr-ticktick` | none |
-| manage | `/fr-ticktick` | work-item, queue, personal-tasks |
-| sync | `/fr-ticktick` | work-item, queue, personal-tasks |
-| review | `/fr-ticktick` | work-item, queue |
-| describe | `/fr-ticktick` | none |
-| schedule | `/fr-ticktick` | none |
 | orient | `/fr-tool` | none |
 | shape | `/fr-tool` | none |
 | build | `/fr-tool` | none |
 | harden | `/fr-tool` | none |
-| catalog | `/fr-tool` | note |
 | orient | `/fr-httpyac` | none |
 | write | `/fr-httpyac` | none |
 | from-design | `/fr-httpyac` | none |
 | run | `/fr-httpyac` | none |
-| note | `/fr-httpyac` | note |
 | feature-plan | `/fr-sdlc` | feature-plan |
 | brief | `/fr-sdlc` | brief |
 

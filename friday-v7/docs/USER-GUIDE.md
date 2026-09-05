@@ -17,7 +17,7 @@ domains/<name>/SKILL.md  → one modes/<job>.md
 surfaces/fr-*/SKILL.md   thin stubs only
 ```
 
-Do not cold-load `schema/` until the mode writes or migrates an artifact.
+Do not cold-load the whole vault or `schema/`. Every mode must resolve the configured brain and perform a bounded lookup before claiming relevant context is absent; load `schema/` only when the mode writes or migrates an artifact.
 
 ## Rule owners
 
@@ -43,6 +43,17 @@ Use `/fr <outcome in normal language>`. A high-confidence route continues into t
 
 OpenCode convenience aliases under `hosts/opencode/commands/` are real commands. Claude/Codex use `/fr <outcome>` or one of the registered surfaces.
 
+## Brain (Obsidian optional)
+
+Durable docs live in a brain folder. Obsidian is not required.
+
+| Backend | When |
+|---|---|
+| `local` | Default. No config, or `brain.backend: local` / `local-fs` / `fs` |
+| `obsidian` | Opt-in: `brain.backend: obsidian` + vault path, or the resolved root has `.obsidian/` |
+
+Set **one** of: env `FRIDAY_BRAIN_ROOT` (optional `FRIDAY_BRAIN_BACKEND`) · `{agent_root}/preferences.md` · host AGENTS `brain.backend` + `brain.root`. Default root: `~/.local/share/friday/`. Layout is always `schema/vault.md`.
+
 ## Vault write (every command)
 
 1. Type allowed — `schema/allow.md`
@@ -67,6 +78,7 @@ Do not open a new feature folder. Patch the same package.
 | Contract change (flow, owner, API, data) | `/fr-design` | `design.md` + matching part · HTTP → `api/` · irreversible → ADR |
 | Several dependent slices | `/fr-slice` | Vertical `work-item`s + blocker graph; wide change uses expand → migrate → contract |
 | One queue item | `/fr-implement` | One `queue.md` row + `work/TODO-…` · Intent/Design only if scope changes |
+| One queue item, test-first | `/fr-tdd` | Confirm seams → red → green per vertical slice · same `work/TODO-…` · refactor deferred to `/fr-review` |
 | Hard bug / performance regression | `/fr-debug` | Red-capable loop → minimal repro → falsifiable hypotheses → regression seam → `fix-note` |
 | Incident / review follow-up | `/fr-fix` | `runbook`, `fix-note`, or `work` · Design if intended behavior changed |
 | New review | `/fr-review` [`เข้มงวด`/`strict`] | New `reports/YYYY-MM-DD - …`. Strict offers a skip/3/5 specialist panel; the bar is the same either way |
@@ -92,12 +104,10 @@ Patch: same type and heading order · `Doc history` row · `rev++` only for cont
 ## Check
 
 ```bash
-python3 evals/check_tree.py      # registry, stub sizes, retired types
-python3 evals/check_schema.py    # type templates share one frontmatter contract
-python3 evals/check_allow.py     # every type allowed somewhere, no unknown tokens
-python3 evals/check_rubric.py    # review scale, bands, weights, formula, ledger
-python3 evals/check_vault.py --vault "$FRIDAY_BRAIN_ROOT"
+python3 evals/check_tree.py      # runs everything below; the only command you need
 ```
+
+It chains `check_schema` (one frontmatter contract) · `check_allow` (every type allowed somewhere) · `check_routing` (every example routes by evidence) · `check_rubric` (review scale, bands, weights) · `check_vault` (skipped unless `FRIDAY_BRAIN_ROOT` is set). Run one of them alone only to read its output in isolation — never to decide the tree is green.
 
 ## Scripts
 
@@ -113,6 +123,7 @@ python3 evals/check_vault.py --vault "$FRIDAY_BRAIN_ROOT"
 |---|---|
 | card | Canonical file |
 | part | Registered companion (`design/` or `stack`) |
+| vault / brain | Configured root (local folder or Obsidian vault). Same layout |
 | Links | Hub = `intent.md`. Others: Intent only. Last before history. Never `[[.]]` |
 | Cap | 200 body lines; YAML / Links / history do not count. Logs = unlimited (`max_lines: 0`) |
 | Flow | Bound + ` ```text` ` sequence + ` ```mermaid` ` + fail/next |

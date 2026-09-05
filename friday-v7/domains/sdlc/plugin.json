@@ -28,6 +28,7 @@
     "mode.feature_consolidate",
     "mode.decision",
     "mode.implement",
+    "mode.tdd",
     "mode.publish",
     "mode.timeline",
     "mode.fix",

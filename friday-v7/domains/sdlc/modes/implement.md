@@ -9,6 +9,7 @@ Writes: work-item via write-gate.
 | **Full** | high / unknown-critical · contract/arch · multi-file · L | `execution.md` + Ready + Plan Lock. User restates Ready in one line. Then `code.md`. |
 
 S fails or scope grows → Full now. Ready fail → `Gate failed: R#`, no edits.
+Test-first requested, or the item is complex logic behind one interface → run `modes/tdd.md` for the build, then return here for Done.
 
 Unfinished `depends_on` → `../standards/deps.md`. Schema touch → `../standards/data.md`. Contract/schema change → write-gate `rev++` + history (Done **D6**).
 
