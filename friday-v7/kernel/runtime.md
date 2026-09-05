@@ -54,7 +54,8 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | verify | `io/verify.md` |
 | session close | `session/session.md` (+ `session/memory.md` if T1–T5) |
 | recall | `session/memory.md` |
-| subagent | `extras/subagent.md` — default never |
+| subagent | `extras/subagent.md` — default never; grill fact-find and design twice are named exceptions |
+| phase boundary | `session/phase.md` |
 | panel / brainstorm | `thinking/brainstorm.md` — user opt only |
 | skill draft | `extras/skill-draft.md` |
 | scoring / `ละเอียด` | sibling `*.deep.md` |
@@ -69,9 +70,9 @@ Handoff `{agent_root}/index.md` only if resume **and** root exists.
 | Recall notes | ≤2 | ≤4 |
 | Recall inject lines | ≤25 | ≤40 |
 | Memory candidates | ≤3 | ≤5 |
-| Subagents | 0 | ≤2 if user opts |
+| Subagents | 0 — named exceptions in `extras/subagent.md` | ≤2 if user opts — same exceptions |
 | Panel N | 0, or 2–5 if user opts | 0, or 2–5 if user opts |
 
 Any output that scores or passes a gate names the profile it ran under — `lean` unless one of the two setters above fired. Same command, different profile = different evidence depth; runs are not comparable unless the profile matches.
 
-**Hygiene:** `/new` after phase · no kernel re-read · no domain preload.
+**Hygiene:** decide continuity at the phase boundary only (`session/phase.md`) · no kernel re-read · no domain preload.

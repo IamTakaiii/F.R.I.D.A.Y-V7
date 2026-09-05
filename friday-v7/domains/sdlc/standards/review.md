@@ -31,6 +31,9 @@ Also FAIL: unread scope · silent ledger row · skipped required dim · `Assumed
 
 Finding (else drop): path · track · why it hurts · one fix · severity.
 
+**`creep`** is a named class: behaviour, config, dependency, or abstraction in the diff that no requirement asked for. Cite the requirement source that is silent about it — `creep` without a spec source is not a finding, it is `no spec`.
+Maps to C4, or C2/C8 when it changes an observable contract. Severity: **major** if it changes a contract, adds a dependency, or widens blast radius; **minor** otherwise. "Useful anyway" is not a defence — it is a separate work-item.
+
 ## Severity
 
 By consequence, not by dim. One finding, one severity. Unsure between two → take the higher.

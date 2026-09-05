@@ -19,6 +19,12 @@ Mark each lens `required` or `N/A + evidence`. **Required + missing must → no 
 | Compat | consumers · evolution · flags |
 | Deploy/ops | then **Deploy must** |
 
+## Seam
+
+Name the seam this feature is verified through **before** the shape is fixed.
+
+Prefer an existing seam · take the highest one that still isolates the risk · fewest seams, ideal is one · a new seam needs ≥2 real adapters (production + test), otherwise it is indirection · test through the interface, never past it.
+
 ## Scale must (lens required)
 
 Fail any blank. Units on every number. `Assumed` needs owner + date. User target is a requirement — current metrics are not a veto.
